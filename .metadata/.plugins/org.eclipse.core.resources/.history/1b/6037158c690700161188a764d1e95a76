@@ -1,0 +1,20 @@
+package com.ticketingsystem.dao;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class Main {
+    public static void main(String[] args) {
+        String url = "jdbc:mysql://192.168.25.129:3306/database_name";
+        String username = "ticketing_admin";
+        String password = "";
+
+        System.out.println("Connecting database...");
+
+        try (Connection connection = DriverManager.getConnection(url, username, password)) {
+            System.out.println("Database connected!");
+        } catch (SQLException e) {
+            throw new IllegalStateException("Cannot connect the database!", e);
+       }
+    }
+}
