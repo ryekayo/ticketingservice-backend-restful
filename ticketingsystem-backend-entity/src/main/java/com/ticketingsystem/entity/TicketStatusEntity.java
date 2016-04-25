@@ -3,6 +3,7 @@ package com.ticketingsystem.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @SuppressWarnings("serial")
@@ -24,9 +26,10 @@ public class TicketStatusEntity implements Serializable
     @Column(name = "id")
     private long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    //@ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "ticket_number")
-    private TicketStatusEntity ticketNumber;
+    private UserTicketEntity ticketNumber;
 
     @Column(name = "date_time_opened")
     private Date dateOpened;
@@ -50,12 +53,12 @@ public class TicketStatusEntity implements Serializable
         this.id = id;
     }
 
-    public TicketStatusEntity getTicketNumber()
+    public UserTicketEntity getTicketNumber()
     {
         return ticketNumber;
     }
 
-    public void setTicketNumber(TicketStatusEntity ticketNumber)
+    public void setTicketNumber(UserTicketEntity ticketNumber)
     {
         this.ticketNumber = ticketNumber;
     }

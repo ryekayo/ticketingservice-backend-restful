@@ -5,9 +5,11 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @SuppressWarnings("serial")
@@ -20,6 +22,7 @@ public class UserTicketEntity implements Serializable
     @Column(name = "id")
     private long id;
 
+    @ManyToOne(fetch = FetchType.EAGER)
     @Column(name = "ticket_number")
     private long ticketNumber;
 
@@ -32,6 +35,12 @@ public class UserTicketEntity implements Serializable
     @Column(name = "case_owner")
     private String caseOwner;
 
+    public UserTicketEntity(){}
+    
+    public UserTicketEntity(long ticketNumber)
+    {
+    	this.ticketNumber = ticketNumber;
+    }
     public long getId()
     {
         return id;
