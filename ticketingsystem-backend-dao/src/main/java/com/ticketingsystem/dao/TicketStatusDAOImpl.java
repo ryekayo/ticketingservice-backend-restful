@@ -32,7 +32,7 @@ public class TicketStatusDAOImpl implements TicketStatusDAO
     @Override
     public TicketStatusEntity createTicketStatusEntity(TicketStatusEntity ticketNumber)
     {
-        this.sessionFactory.getCurrentSession().persist(ticketNumber);
+        this.sessionFactory.getCurrentSession().saveOrUpdate(ticketNumber);
         return ticketNumber;
     }
 

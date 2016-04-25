@@ -42,8 +42,11 @@ public class TicketStatusDAOTest extends BaseDAOTests {
     	boolean _isOpenOne = true;
     	TicketStatusEntity ticketStatusEntityOne = new TicketStatusEntity();
     	// ------------------------------------------------------------------------------------
+    	long _ticketNumberOne = 111;
+    	UserTicketEntity userTicketOne = new UserTicketEntity();
+    	userTicketOne.setTicketNumber(_ticketNumberOne);
     	ticketStatusEntityOne.setId(1);
-    	//ticketStatusEntityOne.setTicketNumber(ticketStatus);
+        //ticketStatusEntityOne.setTicketNumber(userTicketOne);
     	ticketStatusEntityOne.setDateOpened(new Date());
     	ticketStatusEntityOne.setLastModified(new Date());
     	ticketStatusEntityOne.setStatus(_statusOne);
@@ -55,7 +58,10 @@ public class TicketStatusDAOTest extends BaseDAOTests {
     	TicketStatusEntity ticketStatusEntityTwo = new TicketStatusEntity();
     	// ------------------------------------------------------------------------------------
     	ticketStatusEntityTwo.setId(2);
-    	//ticketStatusEntityTwo.setTicketNumber(ticketStatus);
+    	long _ticketNumberTwo = 1;
+    	UserTicketEntity userTicketTwo = new UserTicketEntity();
+    	userTicketTwo.setTicketNumber(_ticketNumberTwo);
+        //ticketStatusEntityTwo.setTicketNumber(userTicketTwo);
     	ticketStatusEntityTwo.setDateOpened(new Date());
     	ticketStatusEntityTwo.setLastModified(new Date());
     	ticketStatusEntityTwo.setStatus(_statusTwo);
@@ -66,8 +72,11 @@ public class TicketStatusDAOTest extends BaseDAOTests {
     	boolean _isOpenThree = false;
     	TicketStatusEntity ticketStatusEntityThree = new TicketStatusEntity();
     	// ------------------------------------------------------------------------------------
+    	long _ticketNumberThree = 333;
     	ticketStatusEntityThree.setId(3);
-    	//ticketStatusEntityThree.setTicketNumber(ticketStatus);
+    	UserTicketEntity userTicketThree = new UserTicketEntity();
+    	userTicketThree.setTicketNumber(_ticketNumberThree);
+    	//ticketStatusEntityThree.setTicketNumber(userTicketThree);
     	ticketStatusEntityThree.setDateOpened(new Date());
     	ticketStatusEntityThree.setLastModified(new Date());
     	ticketStatusEntityThree.setStatus(_statusThree);
@@ -82,7 +91,7 @@ public class TicketStatusDAOTest extends BaseDAOTests {
     {
     	System.out.println("STARTING TEST TO GET TICKET LIST");
     	TicketStatusEntity ticketStatusEntity = new TicketStatusEntity();
-    	ticketStatusEntity.setId(3);
+    	ticketStatusEntity.setStatus("OPEN");
     	List<TicketStatusEntity> status = ticketStatusDao.getAllTicketStatusEntitys();
     	System.out.println(status);
     	if(status != null)
@@ -97,14 +106,18 @@ public class TicketStatusDAOTest extends BaseDAOTests {
     {
     	String _openStatus = "CLOSED";
     	boolean _isOpen = false;
+    	long _ticketNumber = 1;
     	System.out.println("testCreateTicketStatus : START");
     	// ----------------------------------------------------------------------------
     	TicketStatusEntity ticketStatusEntity = new TicketStatusEntity();
+    	UserTicketEntity userTicketEntity = new UserTicketEntity();
+    	userTicketEntity.setTicketNumber(_ticketNumber);
     	ticketStatusEntity.setId(3);
-    	ticketStatusEntity.setTicketNumber(ticketStatusEntity.getTicketNumber());
+    	ticketStatusEntity.setTicketNumber(userTicketEntity);
     	ticketStatusEntity.setDateOpened(new Date());
     	ticketStatusEntity.setLastModified(new Date());
     	ticketStatusEntity.setStatus(_openStatus);
+    	ticketStatusEntity.setOpen(_isOpen);
     	// ------------------------------------------------------------------------------
     	System.out.println("testCreateTicketStatus: " + ticketStatusEntity.toString());
     	// -----------------------------------------------------------------------------
