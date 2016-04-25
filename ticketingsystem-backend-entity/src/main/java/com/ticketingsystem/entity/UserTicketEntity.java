@@ -5,11 +5,9 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @SuppressWarnings("serial")
@@ -22,25 +20,24 @@ public class UserTicketEntity implements Serializable
     @Column(name = "id")
     private long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @Column(name = "ticket_number")
-    private long ticketNumber;
-
-    @Column(name = "opened")
-    private Date dateOpened;
-
     @Column(name = "priority")
     private String priorityType;
 
     @Column(name = "case_owner")
     private String caseOwner;
 
-    public UserTicketEntity(){}
-    
-    public UserTicketEntity(long ticketNumber)
-    {
-    	this.ticketNumber = ticketNumber;
-    }
+    @Column(name = "date_time_opened")
+    private Date dateOpened;
+
+    @Column(name = "last_modified")
+    private Date lastModified;
+
+    @Column(name = "status")
+    private String status;
+
+    @Column(name = "is_open")
+    private boolean isOpen;
+
     public long getId()
     {
         return id;
@@ -49,26 +46,6 @@ public class UserTicketEntity implements Serializable
     public void setId(long id)
     {
         this.id = id;
-    }
-
-    public long getTicketNumber()
-    {
-        return ticketNumber;
-    }
-
-    public void setTicketNumber(long ticketNumber)
-    {
-        this.ticketNumber = ticketNumber;
-    }
-
-    public Date getDateOpened()
-    {
-        return dateOpened;
-    }
-
-    public void setDateOpened(Date dateOpened)
-    {
-        this.dateOpened = dateOpened;
     }
 
     public String getPriorityType()
@@ -91,6 +68,46 @@ public class UserTicketEntity implements Serializable
         this.caseOwner = caseOwner;
     }
 
+    public Date getDateOpened()
+    {
+        return dateOpened;
+    }
+
+    public void setDateOpened(Date dateOpened)
+    {
+        this.dateOpened = dateOpened;
+    }
+
+    public Date getLastModified()
+    {
+        return lastModified;
+    }
+
+    public void setLastModified(Date lastModified)
+    {
+        this.lastModified = lastModified;
+    }
+
+    public String getStatus()
+    {
+        return status;
+    }
+
+    public void setStatus(String status)
+    {
+        this.status = status;
+    }
+
+    public boolean isOpen()
+    {
+        return isOpen;
+    }
+
+    public void setOpen(boolean isOpen)
+    {
+        this.isOpen = isOpen;
+    }
+
     @Override
     public int hashCode()
     {
@@ -99,8 +116,10 @@ public class UserTicketEntity implements Serializable
         result = prime * result + ((caseOwner == null) ? 0 : caseOwner.hashCode());
         result = prime * result + ((dateOpened == null) ? 0 : dateOpened.hashCode());
         result = prime * result + (int) (id ^ (id >>> 32));
+        result = prime * result + (isOpen ? 1231 : 1237);
+        result = prime * result + ((lastModified == null) ? 0 : lastModified.hashCode());
         result = prime * result + ((priorityType == null) ? 0 : priorityType.hashCode());
-        result = prime * result + (int) (ticketNumber ^ (ticketNumber >>> 32));
+        result = prime * result + ((status == null) ? 0 : status.hashCode());
         return result;
     }
 
@@ -130,6 +149,15 @@ public class UserTicketEntity implements Serializable
             return false;
         if (id != other.id)
             return false;
+        if (isOpen != other.isOpen)
+            return false;
+        if (lastModified == null)
+        {
+            if (other.lastModified != null)
+                return false;
+        }
+        else if (!lastModified.equals(other.lastModified))
+            return false;
         if (priorityType == null)
         {
             if (other.priorityType != null)
@@ -137,7 +165,12 @@ public class UserTicketEntity implements Serializable
         }
         else if (!priorityType.equals(other.priorityType))
             return false;
-        if (ticketNumber != other.ticketNumber)
+        if (status == null)
+        {
+            if (other.status != null)
+                return false;
+        }
+        else if (!status.equals(other.status))
             return false;
         return true;
     }
@@ -145,7 +178,8 @@ public class UserTicketEntity implements Serializable
     @Override
     public String toString()
     {
-        return "UserTicketEntity [id=" + id + ", ticketNumber=" + ticketNumber + ", dateOpened=" + dateOpened + ", priorityType=" + priorityType + ", caseOwner=" + caseOwner + "]";
+        return "UserTicketEntity [id=" + id + ", priorityType=" + priorityType + ", caseOwner=" + caseOwner + ", dateOpened=" + dateOpened + ", lastModified=" + lastModified
+            + ", status=" + status + ", isOpen=" + isOpen + "]";
     }
 
 }
