@@ -21,12 +21,12 @@ public class TicketHistoryEntity implements Serializable
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private long id;
+    @Column(name = "tickethistory_id")
+    private long ticketHistoryId;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "ticket_number")
-    private TicketHistoryEntity ticketNumber;
+    @JoinColumn(name = "ticketId")
+    private UserTicketEntity ticketId;
 
     @Column(name = "case_owner")
     private String caseOwner;
@@ -58,24 +58,24 @@ public class TicketHistoryEntity implements Serializable
     @Column(name = "date_escalated")
     private Date dateEscalated;
 
-    public long getId()
+    public long getTicketHistoryId()
     {
-        return id;
+        return ticketHistoryId;
     }
 
-    public void setId(long id)
+    public void setTicketHistoryId(long ticketHistoryId)
     {
-        this.id = id;
+        this.ticketHistoryId = ticketHistoryId;
     }
 
-    public TicketHistoryEntity getTicketNumber()
+    public UserTicketEntity getTicketNumber()
     {
-        return ticketNumber;
+        return ticketId;
     }
 
-    public void setTicketNumber(TicketHistoryEntity ticketNumber)
+    public void setTicketNumber(UserTicketEntity ticketId)
     {
-        this.ticketNumber = ticketNumber;
+        this.ticketId = ticketId;
     }
 
     public String getCaseOwner()
@@ -188,13 +188,13 @@ public class TicketHistoryEntity implements Serializable
         result = prime * result + ((dateEscalated == null) ? 0 : dateEscalated.hashCode());
         result = prime * result + ((dateOpened == null) ? 0 : dateOpened.hashCode());
         result = prime * result + ((emailTimestamp == null) ? 0 : emailTimestamp.hashCode());
-        result = prime * result + (int) (id ^ (id >>> 32));
+        result = prime * result + (int) (ticketHistoryId ^ (ticketHistoryId >>> 32));
         result = prime * result + (isClosed ? 1231 : 1237);
         result = prime * result + (isEscalated ? 1231 : 1237);
         result = prime * result + ((lastModBy == null) ? 0 : lastModBy.hashCode());
         result = prime * result + ((lastModified == null) ? 0 : lastModified.hashCode());
         result = prime * result + ((statusChange == null) ? 0 : statusChange.hashCode());
-        result = prime * result + ((ticketNumber == null) ? 0 : ticketNumber.hashCode());
+        result = prime * result + ((ticketId == null) ? 0 : ticketId.hashCode());
         return result;
     }
 
@@ -243,7 +243,7 @@ public class TicketHistoryEntity implements Serializable
         }
         else if (!emailTimestamp.equals(other.emailTimestamp))
             return false;
-        if (id != other.id)
+        if (ticketHistoryId != other.ticketHistoryId)
             return false;
         if (isClosed != other.isClosed)
             return false;
@@ -270,12 +270,12 @@ public class TicketHistoryEntity implements Serializable
         }
         else if (!statusChange.equals(other.statusChange))
             return false;
-        if (ticketNumber == null)
+        if (ticketId == null)
         {
-            if (other.ticketNumber != null)
+            if (other.ticketId != null)
                 return false;
         }
-        else if (!ticketNumber.equals(other.ticketNumber))
+        else if (!ticketId.equals(other.ticketId))
             return false;
         return true;
     }
@@ -283,7 +283,7 @@ public class TicketHistoryEntity implements Serializable
     @Override
     public String toString()
     {
-        return "TicketHistoryEntity [id=" + id + ", ticketNumber=" + ticketNumber + ", caseOwner=" + caseOwner + ", dateOpened=" + dateOpened + ", lastModified=" + lastModified
+        return "TicketHistoryEntity [ticketHistoryId=" + ticketHistoryId + ", ticketId=" + ticketId + ", caseOwner=" + caseOwner + ", dateOpened=" + dateOpened + ", lastModified=" + lastModified
             + ", lastModBy=" + lastModBy + ", statusChange=" + statusChange + ", isClosed=" + isClosed + ", emailTimestamp=" + emailTimestamp + ", dateClosed=" + dateClosed
             + ", isEscalated=" + isEscalated + ", dateEscalated=" + dateEscalated + "]";
     }

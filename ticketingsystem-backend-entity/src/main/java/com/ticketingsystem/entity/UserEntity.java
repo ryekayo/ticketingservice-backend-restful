@@ -16,8 +16,8 @@ public class UserEntity implements Serializable
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private long id;
+    @Column(name = "userId")
+    private long userId;
 
     @Column(name = "username")
     private String userName;
@@ -34,14 +34,14 @@ public class UserEntity implements Serializable
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    public long getId()
+    public long getUserId()
     {
-        return id;
+        return userId;
     }
 
-    public void setId(long id)
+    public void setUserId(long userId)
     {
-        this.id = id;
+        this.userId = userId;
     }
 
     public String getUserName()
@@ -100,7 +100,7 @@ public class UserEntity implements Serializable
         final int prime = 31;
         int result = 1;
         result = prime * result + ((emailAddress == null) ? 0 : emailAddress.hashCode());
-        result = prime * result + (int) (id ^ (id >>> 32));
+        result = prime * result + (int) (userId ^ (userId >>> 32));
         result = prime * result + ((name == null) ? 0 : name.hashCode());
         result = prime * result + ((phoneNumber == null) ? 0 : phoneNumber.hashCode());
         result = prime * result + ((title == null) ? 0 : title.hashCode());
@@ -125,7 +125,7 @@ public class UserEntity implements Serializable
         }
         else if (!emailAddress.equals(other.emailAddress))
             return false;
-        if (id != other.id)
+        if (userId != other.userId)
             return false;
         if (name == null)
         {
@@ -161,7 +161,7 @@ public class UserEntity implements Serializable
     @Override
     public String toString()
     {
-        return "UserEntity [id=" + id + ", userName=" + userName + ", name=" + name + ", emailAddress=" + emailAddress + ", title=" + title + ", phoneNumber=" + phoneNumber + "]";
+        return "UserEntity [userId=" + userId + ", userName=" + userName + ", name=" + name + ", emailAddress=" + emailAddress + ", title=" + title + ", phoneNumber=" + phoneNumber + "]";
     }
 
 }

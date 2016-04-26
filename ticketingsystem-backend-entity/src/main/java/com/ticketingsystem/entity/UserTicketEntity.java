@@ -5,9 +5,12 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @SuppressWarnings("serial")
@@ -17,20 +20,24 @@ public class UserTicketEntity implements Serializable
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private long id;
+    @Column(name = "ticketId")
+    private long ticketId;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "customerId")
+    private CustomerInformationEntity customerId;
+    
+    @Column(name = "opened")
+    private Date dateOpened;
+    
+    @Column(name = "last_modified")
+    private Date lastModified;
+    
     @Column(name = "priority")
     private String priorityType;
 
     @Column(name = "case_owner")
     private String caseOwner;
-
-    @Column(name = "date_time_opened")
-    private Date dateOpened;
-
-    @Column(name = "last_modified")
-    private Date lastModified;
 
     @Column(name = "status")
     private String status;
@@ -38,16 +45,24 @@ public class UserTicketEntity implements Serializable
     @Column(name = "is_open")
     private boolean isOpen;
 
-    public long getId()
+    public long getTicketId()
     {
-        return id;
+        return ticketId;
     }
 
-    public void setId(long id)
+    public void setTicketId(long ticketId)
     {
-        this.id = id;
+        this.ticketId = ticketId;
     }
 
+    public CustomerInformationEntity getCustomerId()
+    {
+    	return customerId;
+    }
+    public void setCustomerId(CustomerInformationEntity customerId)
+    {
+    	this.customerId = customerId;
+    }
     public String getPriorityType()
     {
         return priorityType;
@@ -115,8 +130,9 @@ public class UserTicketEntity implements Serializable
         int result = 1;
         result = prime * result + ((caseOwner == null) ? 0 : caseOwner.hashCode());
         result = prime * result + ((dateOpened == null) ? 0 : dateOpened.hashCode());
-        result = prime * result + (int) (id ^ (id >>> 32));
+        result = prime * result + (int) (ticketId ^ (ticketId >>> 32));
         result = prime * result + (isOpen ? 1231 : 1237);
+        result = prime * result + ((customerId == null) ? 0 : customerId.hashCode());
         result = prime * result + ((lastModified == null) ? 0 : lastModified.hashCode());
         result = prime * result + ((priorityType == null) ? 0 : priorityType.hashCode());
         result = prime * result + ((status == null) ? 0 : status.hashCode());
@@ -147,7 +163,7 @@ public class UserTicketEntity implements Serializable
         }
         else if (!dateOpened.equals(other.dateOpened))
             return false;
-        if (id != other.id)
+        if (ticketId != other.ticketId)
             return false;
         if (isOpen != other.isOpen)
             return false;
@@ -172,13 +188,20 @@ public class UserTicketEntity implements Serializable
         }
         else if (!status.equals(other.status))
             return false;
+        if (customerId == null)
+        {
+            if (other.customerId != null)
+                return false;
+        }
+        else if (!customerId.equals(other.customerId))
+            return false;
         return true;
     }
 
     @Override
     public String toString()
     {
-        return "UserTicketEntity [id=" + id + ", priorityType=" + priorityType + ", caseOwner=" + caseOwner + ", dateOpened=" + dateOpened + ", lastModified=" + lastModified
+        return "UserTicketEntity [ticketId=" + ticketId + ", customerId=" + customerId + ", priorityType=" + priorityType + ", caseOwner=" + caseOwner + ", dateOpened=" + dateOpened + ", lastModified=" + lastModified
             + ", status=" + status + ", isOpen=" + isOpen + "]";
     }
 

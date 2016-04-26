@@ -21,12 +21,16 @@ public class EmailHistoryEntity implements Serializable
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private long id;
+    @Column(name = "email_historyid")
+    private long emailHistoryId;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "ticket_number")
-    private EmailHistoryEntity ticketNumber;
+    @JoinColumn(name = "ticketId")
+    private UserTicketEntity ticketId;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "userId")
+    private UserEntity userId;
 
     @Column(name = "email_timestamp")
     private Date emailTimestamp;
@@ -40,26 +44,36 @@ public class EmailHistoryEntity implements Serializable
     @Column(name = "to_email")
     private String toEmail;
 
-    public long getId()
+    public long getEmailHistoryId()
     {
-        return id;
+        return emailHistoryId;
     }
 
-    public void setId(long id)
+    public void setEmailHistoryId(long emailHistoryId)
     {
-        this.id = id;
+        this.emailHistoryId = emailHistoryId;
     }
 
-    public EmailHistoryEntity getTicketNumber()
+    public UserTicketEntity getTicketId()
     {
-        return ticketNumber;
+        return ticketId;
     }
 
-    public void setTicketNumber(EmailHistoryEntity ticketNumber)
+    public void setTicketNumber(UserTicketEntity ticketId)
     {
-        this.ticketNumber = ticketNumber;
+        this.ticketId = ticketId;
     }
 
+    public UserEntity getUserId()
+    {
+        return userId;
+    }
+
+    public void getUserId(UserEntity userId)
+    {
+        this.userId = userId;
+    }
+    
     public Date getEmailTimestamp()
     {
         return emailTimestamp;
@@ -108,8 +122,9 @@ public class EmailHistoryEntity implements Serializable
         result = prime * result + ((emailSent == null) ? 0 : emailSent.hashCode());
         result = prime * result + ((emailTimestamp == null) ? 0 : emailTimestamp.hashCode());
         result = prime * result + ((fromEmail == null) ? 0 : fromEmail.hashCode());
-        result = prime * result + (int) (id ^ (id >>> 32));
-        result = prime * result + ((ticketNumber == null) ? 0 : ticketNumber.hashCode());
+        result = prime * result + (int) (emailHistoryId ^ (emailHistoryId >>> 32));
+        result = prime * result + ((ticketId == null) ? 0 : ticketId.hashCode());
+        result = prime * result + ((userId == null) ? 0 : userId.hashCode());
         result = prime * result + ((toEmail == null) ? 0 : toEmail.hashCode());
         return result;
     }
@@ -145,15 +160,22 @@ public class EmailHistoryEntity implements Serializable
         }
         else if (!fromEmail.equals(other.fromEmail))
             return false;
-        if (id != other.id)
+        if (emailHistoryId != other.emailHistoryId)
             return false;
-        if (ticketNumber == null)
+        if (ticketId == null)
         {
-            if (other.ticketNumber != null)
+            if (other.ticketId != null)
                 return false;
         }
-        else if (!ticketNumber.equals(other.ticketNumber))
-            return false;
+        else if (!ticketId.equals(other.ticketId))
+            return false;        
+        if (ticketId == null)
+        {
+            if (other.userId != null)
+                return false;
+        }
+        else if (!userId.equals(other.userId))
+            return false;        
         if (toEmail == null)
         {
             if (other.toEmail != null)
@@ -167,7 +189,7 @@ public class EmailHistoryEntity implements Serializable
     @Override
     public String toString()
     {
-        return "EmailHistoryEntity [id=" + id + ", ticketNumber=" + ticketNumber + ", emailTimestamp=" + emailTimestamp + ", emailSent=" + emailSent + ", fromEmail=" + fromEmail
+        return "EmailHistoryEntity [emailHistoryId=" + emailHistoryId + ", ticketId=" + ticketId + ", userId=" + userId + ", emailTimestamp=" + emailTimestamp + ", emailSent=" + emailSent + ", fromEmail=" + fromEmail
             + ", toEmail=" + toEmail + "]";
     }
 

@@ -24,14 +24,24 @@ public class UserRolesEntity implements Serializable
     private long id;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "rolename")
-    private UserRolesEntity roleName;
+    @JoinColumn(name = "userId")
+    private UserEntity userId;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "roleId")
+    private RoleEntity roleId;
 
-    @Column(name = "description")
-    private String description;
+    @Column(name = "admin_access")
+    private boolean adminAccess;
+    
+    @Column(name = "moderator_access")
+    private boolean moderatorAccess;
+    
+    @Column(name = "observer_access")
+    private boolean observerAccess;
 
-    @Column(name = "rolename_code")
-    private String roleNameCode;
+    @Column(name = "rolename")
+    private String roleName;
 
     public long getId()
     {
@@ -43,34 +53,50 @@ public class UserRolesEntity implements Serializable
         this.id = id;
     }
 
-    public UserRolesEntity getRoleName()
+    public RoleEntity getRoleId()
     {
-        return roleName;
+        return roleId;
     }
 
-    public void setRoleName(UserRolesEntity roleName)
+    public void setRoleId(RoleEntity roleId)
     {
-        this.roleName = roleName;
+        this.roleId = roleId;
+    }
+    
+    public boolean getAdminAccess()
+    {
+        return adminAccess;
     }
 
-    public String getDescription()
+    public void setAdminAccess(boolean adminAccess)
     {
-        return description;
+        this.adminAccess = adminAccess;
+    }
+    
+    public boolean getModeratorAccess()
+    {
+        return adminAccess;
     }
 
-    public void setDescription(String description)
+    public void setModeratorAccess(boolean moderatorAccess)
     {
-        this.description = description;
+        this.moderatorAccess = moderatorAccess;
     }
-
-    public String getRoleNameCode()
+    public boolean getObserverAccess()
     {
-        return roleNameCode;
+    	return observerAccess;
     }
-
-    public void setRoleNameCode(String roleNameCode)
+    public void setObserverAccess(boolean observerAccess)
     {
-        this.roleNameCode = roleNameCode;
+    	this.observerAccess = observerAccess;
+    }
+    public String getRoleName()
+    {
+    	return roleName;
+    }
+    public void setRoleName(String roleName)
+    {
+    	this.roleName = roleName;
     }
 
     @Override
@@ -78,10 +104,13 @@ public class UserRolesEntity implements Serializable
     {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((description == null) ? 0 : description.hashCode());
+        result = prime * result + (observerAccess ? 1231 : 1237);
+        result = prime * result + (moderatorAccess ? 1231 : 1237);
+        result = prime * result + (adminAccess ? 1231 : 1237);
+        result = prime * result + ((userId == null) ? 0 : userId.hashCode());
+        result = prime * result + ((roleId == null) ? 0 : roleId.hashCode());
         result = prime * result + (int) (id ^ (id >>> 32));
         result = prime * result + ((roleName == null) ? 0 : roleName.hashCode());
-        result = prime * result + ((roleNameCode == null) ? 0 : roleNameCode.hashCode());
         return result;
     }
 
@@ -95,13 +124,22 @@ public class UserRolesEntity implements Serializable
         if (getClass() != obj.getClass())
             return false;
         UserRolesEntity other = (UserRolesEntity) obj;
-        if (description == null)
+        if (roleId == null)
         {
-            if (other.description != null)
+            if (other.roleId != null)
                 return false;
         }
-        else if (!description.equals(other.description))
+        else if (!roleId.equals(other.roleId))
             return false;
+        
+        if (userId == null)
+        {
+            if (other.userId != null)
+                return false;
+        }
+        else if (!userId.equals(other.userId))
+            return false;
+        
         if (id != other.id)
             return false;
         if (roleName == null)
@@ -111,12 +149,11 @@ public class UserRolesEntity implements Serializable
         }
         else if (!roleName.equals(other.roleName))
             return false;
-        if (roleNameCode == null)
-        {
-            if (other.roleNameCode != null)
-                return false;
-        }
-        else if (!roleNameCode.equals(other.roleNameCode))
+        if (adminAccess != other.adminAccess)
+            return false;
+        if (moderatorAccess != other.moderatorAccess)
+            return false;
+        if (observerAccess != other.observerAccess)
             return false;
         return true;
     }
@@ -124,7 +161,8 @@ public class UserRolesEntity implements Serializable
     @Override
     public String toString()
     {
-        return "UserRolesEntity [id=" + id + ", roleName=" + roleName + ", description=" + description + ", roleNameCode=" + roleNameCode + "]";
+        return "UserRolesEntity [id=" + id + ", roleId=" + roleId + ", userId=" + userId + ", adminAccess=" + adminAccess + ", "
+        		+ "moderatorAccess=" + moderatorAccess + ", observerAccess=" + observerAccess + ", roleName=" + roleName + "]";
     }
 
 }

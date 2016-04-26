@@ -25,8 +25,8 @@ public class CaseDescriptionEntity implements Serializable
     private long id;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "ticket_number")
-    private CaseDescriptionEntity ticketNumber;
+    @JoinColumn(name = "ticketId")
+    private UserTicketEntity ticketId;
 
     @Column(name = "description")
     private String description;
@@ -40,24 +40,23 @@ public class CaseDescriptionEntity implements Serializable
     @Column(name = "last_modified_by")
     private String lastModifiedBy;
 
+    public void setId()
+    {
+    	this.id = id;
+    }
     public long getId()
     {
         return id;
     }
 
-    public void setId(long id)
+    public void setTicketId(UserTicketEntity ticketId)
     {
-        this.id = id;
+        this.ticketId = ticketId;
     }
 
-    public CaseDescriptionEntity getTicketNumber()
+    public UserTicketEntity getTicketId()
     {
-        return ticketNumber;
-    }
-
-    public void setTicketNumber(CaseDescriptionEntity ticketNumber)
-    {
-        this.ticketNumber = ticketNumber;
+        return ticketId;
     }
 
     public String getDescription()
@@ -110,7 +109,7 @@ public class CaseDescriptionEntity implements Serializable
         result = prime * result + ((lastModified == null) ? 0 : lastModified.hashCode());
         result = prime * result + ((lastModifiedBy == null) ? 0 : lastModifiedBy.hashCode());
         result = prime * result + ((openedBy == null) ? 0 : openedBy.hashCode());
-        result = prime * result + ((ticketNumber == null) ? 0 : ticketNumber.hashCode());
+        result = prime * result + ((ticketId == null) ? 0 : ticketId.hashCode());
         return result;
     }
 
@@ -154,12 +153,12 @@ public class CaseDescriptionEntity implements Serializable
         }
         else if (!openedBy.equals(other.openedBy))
             return false;
-        if (ticketNumber == null)
+        if (ticketId == null)
         {
-            if (other.ticketNumber != null)
+            if (other.ticketId != null)
                 return false;
         }
-        else if (!ticketNumber.equals(other.ticketNumber))
+        else if (!ticketId.equals(other.ticketId))
             return false;
         return true;
     }
@@ -167,7 +166,7 @@ public class CaseDescriptionEntity implements Serializable
     @Override
     public String toString()
     {
-        return "CaseDescriptionEntity [id=" + id + ", ticketNumber=" + ticketNumber + ", description=" + description + ", lastModified=" + lastModified + ", openedBy=" + openedBy
+        return "CaseDescriptionEntity [id=" + id + ", ticketId=" + ticketId + ", description=" + description + ", lastModified=" + lastModified + ", openedBy=" + openedBy
             + ", lastModifiedBy=" + lastModifiedBy + "]";
     }
 

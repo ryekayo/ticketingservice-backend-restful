@@ -24,8 +24,8 @@ public class EscalationStatusEntity implements Serializable
     private long id;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "ticket_number")
-    private EscalationStatusEntity ticketNumber;
+    @JoinColumn(name = "ticketId")
+    private UserTicketEntity ticketId;
 
     @Column(name = "is_escalated")
     private boolean isEscalated;
@@ -49,14 +49,14 @@ public class EscalationStatusEntity implements Serializable
         this.id = id;
     }
 
-    public EscalationStatusEntity getTicketNumber()
+    public UserTicketEntity getTicketId()
     {
-        return ticketNumber;
+        return ticketId;
     }
 
-    public void setTicketNumber(EscalationStatusEntity ticketNumber)
+    public void setTicketId(UserTicketEntity ticketId)
     {
-        this.ticketNumber = ticketNumber;
+        this.ticketId = ticketId;
     }
 
     public boolean isEscalated()
@@ -109,7 +109,7 @@ public class EscalationStatusEntity implements Serializable
         result = prime * result + (int) (id ^ (id >>> 32));
         result = prime * result + (isEscalated ? 1231 : 1237);
         result = prime * result + ((notes == null) ? 0 : notes.hashCode());
-        result = prime * result + ((ticketNumber == null) ? 0 : ticketNumber.hashCode());
+        result = prime * result + ((ticketId == null) ? 0 : ticketId.hashCode());
         return result;
     }
 
@@ -148,12 +148,12 @@ public class EscalationStatusEntity implements Serializable
         }
         else if (!notes.equals(other.notes))
             return false;
-        if (ticketNumber == null)
+        if (ticketId == null)
         {
-            if (other.ticketNumber != null)
+            if (other.ticketId != null)
                 return false;
         }
-        else if (!ticketNumber.equals(other.ticketNumber))
+        else if (!ticketId.equals(other.ticketId))
             return false;
         return true;
     }
@@ -161,7 +161,7 @@ public class EscalationStatusEntity implements Serializable
     @Override
     public String toString()
     {
-        return "EscalationStatusEntity [id=" + id + ", ticketNumber=" + ticketNumber + ", isEscalated=" + isEscalated + ", dateEscalated=" + dateEscalated + ", assignedTo="
+        return "EscalationStatusEntity [id=" + id + ", ticketId=" + ticketId + ", isEscalated=" + isEscalated + ", dateEscalated=" + dateEscalated + ", assignedTo="
             + assignedTo + ", notes=" + notes + "]";
     }
 

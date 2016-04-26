@@ -20,12 +20,8 @@ public class CustomerInformationEntity implements Serializable
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private long id;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "ticket_number")
-    private CustomerInformationEntity ticketNumber;
+    @Column(name = "customerId")
+    private long customerId;
 
     @Column(name = "customer_name")
     private String customerName;
@@ -45,24 +41,14 @@ public class CustomerInformationEntity implements Serializable
     @Column(name = "escalated")
     private boolean isEscalated;
 
-    public long getId()
+    public long getCustomerId()
     {
-        return id;
+        return customerId;
     }
 
-    public void setId(long id)
+    public void setCustomerId(long customerId)
     {
-        this.id = id;
-    }
-
-    public CustomerInformationEntity getTicketNumber()
-    {
-        return ticketNumber;
-    }
-
-    public void setTicketNumber(CustomerInformationEntity ticketNumber)
-    {
-        this.ticketNumber = ticketNumber;
+        this.customerId = customerId;
     }
 
     public String getCustomerName()
@@ -134,10 +120,9 @@ public class CustomerInformationEntity implements Serializable
         result = prime * result + ((customerEmail == null) ? 0 : customerEmail.hashCode());
         result = prime * result + ((customerName == null) ? 0 : customerName.hashCode());
         result = prime * result + ((customerPhone == null) ? 0 : customerPhone.hashCode());
-        result = prime * result + (int) (id ^ (id >>> 32));
+        result = prime * result + (int) (customerId ^ (customerId >>> 32));
         result = prime * result + (isEscalated ? 1231 : 1237);
         result = prime * result + ((priorityLevel == null) ? 0 : priorityLevel.hashCode());
-        result = prime * result + ((ticketNumber == null) ? 0 : ticketNumber.hashCode());
         return result;
     }
 
@@ -179,7 +164,7 @@ public class CustomerInformationEntity implements Serializable
         }
         else if (!customerPhone.equals(other.customerPhone))
             return false;
-        if (id != other.id)
+        if (customerId != other.customerId)
             return false;
         if (isEscalated != other.isEscalated)
             return false;
@@ -190,20 +175,13 @@ public class CustomerInformationEntity implements Serializable
         }
         else if (!priorityLevel.equals(other.priorityLevel))
             return false;
-        if (ticketNumber == null)
-        {
-            if (other.ticketNumber != null)
-                return false;
-        }
-        else if (!ticketNumber.equals(other.ticketNumber))
-            return false;
         return true;
     }
 
     @Override
     public String toString()
     {
-        return "CustomerInformationEntity [id=" + id + ", ticketNumber=" + ticketNumber + ", customerName=" + customerName + ", customerEmail=" + customerEmail + ", customerPhone="
+        return "CustomerInformationEntity [customerId=" + customerId + ", customerName=" + customerName + ", customerEmail=" + customerEmail + ", customerPhone="
             + customerPhone + ", companyName=" + companyName + ", priorityLevel=" + priorityLevel + ", isEscalated=" + isEscalated + "]";
     }
 
