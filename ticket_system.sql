@@ -267,13 +267,12 @@ CREATE TABLE `user_roles` (
   `observer_access` tinyint(1) NOT NULL DEFAULT '0',
   `rolename` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `userId_UNIQUE` (`userId`),
-  UNIQUE KEY `userRoleId_UNIQUE` (`roleId`),
+  UNIQUE KEY `userId_UNIQUE` (`userId`,`roleId`),
   UNIQUE KEY `id_UNIQUE` (`id`),
-  UNIQUE KEY `rolename_UNIQUE` (`rolename`),
+  KEY `fk_userroles_roleId` (`roleId`),
   CONSTRAINT `fk_userroles_roleId` FOREIGN KEY (`roleId`) REFERENCES `role` (`roleId`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_userroles_userId` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -282,7 +281,7 @@ CREATE TABLE `user_roles` (
 
 LOCK TABLES `user_roles` WRITE;
 /*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
-INSERT INTO `user_roles` VALUES (8,6,1,1,0,0,'ADMIN'),(10,7,2,0,1,0,'MODERATOR'),(11,8,3,0,0,1,'OBSERVER');
+INSERT INTO `user_roles` VALUES (8,6,1,1,0,0,'ADMIN'),(10,7,2,0,1,0,'MODERATOR'),(11,8,3,0,0,1,'OBSERVER'),(14,7,1,0,1,0,'MODERATOR'),(15,8,1,0,0,1,'OBSERVER');
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -328,4 +327,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-04-27 10:53:46
+-- Dump completed on 2016-04-27 12:01:28
