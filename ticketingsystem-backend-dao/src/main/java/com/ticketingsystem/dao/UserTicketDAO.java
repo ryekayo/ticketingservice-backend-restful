@@ -1,7 +1,8 @@
 package com.ticketingsystem.dao;
 import java.util.List;
+
+import com.ticketingsystem.entity.CustomerInformationEntity;
 import com.ticketingsystem.entity.UserTicketEntity;
-import com.ticketingsystem.entity.CustomerEntity;
 
 public interface UserTicketDAO {
 	
@@ -22,4 +23,7 @@ public interface UserTicketDAO {
 	public List<UserTicketEntity> getUserTicketEntitiesByOwner(String caseOwner);
 	
 	public List<UserTicketEntity> getUserTicketEntitiyesByPriority(String priorityType);
+	
+	public List<UserTicketEntity> getUserTicketEntitiesByCustomerID(CustomerInformationEntity customerID);
+
 }

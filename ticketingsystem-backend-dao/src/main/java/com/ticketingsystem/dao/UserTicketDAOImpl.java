@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.ticketingsystem.entity.CustomerInformationEntity;
 import com.ticketingsystem.entity.UserTicketEntity;
 
 @Repository
@@ -49,10 +50,9 @@ public class UserTicketDAOImpl implements UserTicketDAO
     }
 
     @Override
-    public void deleteUserTicketEntity(long ticketNumber)
+    public void deleteUserTicketEntity(long ticketId)
     {
         UserTicketEntity deleteTicket = new UserTicketEntity();
-        deleteTicket.setTicketNumber(ticketNumber);
         this.sessionFactory.getCurrentSession().delete(deleteTicket);
     }
 
@@ -72,24 +72,31 @@ public class UserTicketDAOImpl implements UserTicketDAO
     }
 
     @Override
-    public UserTicketEntity getUserTicketEntity(long ticketNumber)
+    public UserTicketEntity getUserTicketEntity(long ticketId)
     {
-        return (UserTicketEntity) this.sessionFactory.getCurrentSession().get(UserTicketEntity.class, ticketNumber);
+        return (UserTicketEntity) this.sessionFactory.getCurrentSession().get(UserTicketEntity.class, ticketId);
     }
 
     @Override
     public List<UserTicketEntity> getUserTicketEntitiesByOwner(String caseOwner)
     {
-        List<UserTicketEntity> tickets =
-            this.sessionFactory.getCurrentSession().createQuery("from UserTicketEntity user_ticket where case_owner= ?").setParameter(0, caseOwner).list();
-        return tickets;
+        List<UserTicketEntity> ticketId =
+            this.sessionFactory.getCurrentSession().createQuery("from UserTicketEntity ticketId where case_owner= ?").setParameter(0, caseOwner).list();
+        return ticketId;
     }
 
     @Override
     public List<UserTicketEntity> getUserTicketEntitiyesByPriority(String priorityType)
     {
-        List<UserTicketEntity> tickets =
-            this.sessionFactory.getCurrentSession().createQuery("from UserTicketEntity user_ticket where priority= ?").setParameter(0, priorityType).list();
-        return tickets;
+        List<UserTicketEntity> ticketId =
+            this.sessionFactory.getCurrentSession().createQuery("from UserTicketEntity ticketId where priority= ?").setParameter(0, priorityType).list();
+        return ticketId;
+    }
+    
+    @Override
+    public List<UserTicketEntity> getUserTicketEntitiesByCustomerID(CustomerInformationEntity customerID)
+    {
+    	List<UserTicketEntity> customerId = this.sessionFactory.getCurrentSession().createQuery("from UserTIcketEntity ticketId where customerId =?").setParameter(0, customerID).list();
+    	return customerId;
     }
 }
