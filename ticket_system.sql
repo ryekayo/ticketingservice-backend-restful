@@ -162,10 +162,10 @@ DROP TABLE IF EXISTS `role`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `role` (
   `roleId` int(11) NOT NULL AUTO_INCREMENT,
-  `description` varchar(45) DEFAULT NULL,
   `admin_access` tinyint(1) NOT NULL DEFAULT '0',
   `moderator_access` tinyint(1) NOT NULL DEFAULT '0',
   `observer_access` tinyint(1) NOT NULL DEFAULT '0',
+  `rolename` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`roleId`),
   KEY `fk_userroles_roleId_idx` (`roleId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
@@ -177,7 +177,7 @@ CREATE TABLE `role` (
 
 LOCK TABLES `role` WRITE;
 /*!40000 ALTER TABLE `role` DISABLE KEYS */;
-INSERT INTO `role` VALUES (6,'ADMIN',1,0,0),(7,'MODERATOR',0,1,0),(8,'OBSERVER',0,0,1);
+INSERT INTO `role` VALUES (6,1,0,0,'ADMIN'),(7,0,1,0,'MODERATOR'),(8,0,0,1,'OBSERVER');
 /*!40000 ALTER TABLE `role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -262,10 +262,6 @@ CREATE TABLE `user_roles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `roleId` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
-  `admin_access` tinyint(1) NOT NULL DEFAULT '0',
-  `moderator_access` tinyint(1) NOT NULL DEFAULT '0',
-  `observer_access` tinyint(1) NOT NULL DEFAULT '0',
-  `rolename` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `userId_UNIQUE` (`userId`,`roleId`),
   UNIQUE KEY `id_UNIQUE` (`id`),
@@ -281,7 +277,7 @@ CREATE TABLE `user_roles` (
 
 LOCK TABLES `user_roles` WRITE;
 /*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
-INSERT INTO `user_roles` VALUES (8,6,1,1,0,0,'ADMIN'),(10,7,2,0,1,0,'MODERATOR'),(11,8,3,0,0,1,'OBSERVER'),(14,7,1,0,1,0,'MODERATOR'),(15,8,1,0,0,1,'OBSERVER');
+INSERT INTO `user_roles` VALUES (8,6,1),(14,7,1),(15,8,1),(10,7,2),(11,8,3);
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -327,4 +323,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-04-27 12:01:28
+-- Dump completed on 2016-04-28 10:36:39
