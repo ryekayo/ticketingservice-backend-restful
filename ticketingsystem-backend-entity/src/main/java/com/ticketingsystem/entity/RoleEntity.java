@@ -17,9 +17,6 @@ public class RoleEntity {
     @Column(name = "roleId")
     private long roleId;
     
-    @Column(name = "description")
-    private String description;
-    
     @Column(name = "admin_access")
     private boolean adminAccess;
     
@@ -29,6 +26,9 @@ public class RoleEntity {
     @Column(name = "observer_access")
     private boolean observerAccess;
     
+    @Column(name = "rolename")
+    private String roleName;
+    
     public long getRoleId()
     {
     	return roleId;
@@ -36,14 +36,6 @@ public class RoleEntity {
     public void setRoleId(long roleId)
     {
     	this.roleId = roleId;
-    }
-    public String getDescription()
-    {
-    	return description;
-    }
-    public void setDescription(String description)
-    {
-    	this.description = description;
     }
     public boolean getAdminAccess()
     {
@@ -69,6 +61,14 @@ public class RoleEntity {
     {
     	this.observerAccess = observerAccess;
     }
+    public String getRoleName()
+    {
+    	return roleName;
+    }
+    public void setRoleName(String roleName)
+    {
+    	this.roleName = roleName;
+    }
     
     @Override
     public int hashCode()
@@ -76,7 +76,7 @@ public class RoleEntity {
         final int prime = 31;
         int result = 1;
         result = prime * result + (int) (roleId ^ (roleId >>> 32));
-        result = prime * result + ((description == null) ? 0 : description.hashCode());
+        result = prime * result + ((roleName == null) ? 0 : roleName.hashCode());
         result = prime * result + (adminAccess ? 1231 : 1237);
         result = prime * result + (moderatorAccess ? 1231 : 1237);
         result = prime * result + (observerAccess ? 1231 : 1237);
@@ -95,12 +95,12 @@ public class RoleEntity {
         RoleEntity other = (RoleEntity) obj;
         if (roleId != other.roleId)
             return false;
-        if (description == null)
+        if (roleName == null)
         {
-            if (other.description != null)
+            if (other.roleName != null)
                 return false;
         }
-        else if (!description.equals(other.description))
+        else if (!roleName.equals(other.roleName))
             return false;
         if (adminAccess != other.adminAccess)
             return false;
@@ -113,6 +113,6 @@ public class RoleEntity {
     @Override
     public String toString()
     {
-        return "RoleEntity [roleId=" + roleId + ", description=" + description + ", adminAccess=" + adminAccess + ", moderatorAccess=" + moderatorAccess + ", observerAccess=" + observerAccess + "]";
+        return "RoleEntity [roleId=" + roleId + ", adminAccess=" + adminAccess + ", moderatorAccess=" + moderatorAccess + ", observerAccess=" + observerAccess + "roleName=" + roleName +  "]";
     }
 }
