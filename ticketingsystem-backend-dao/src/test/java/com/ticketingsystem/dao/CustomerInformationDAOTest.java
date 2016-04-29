@@ -217,4 +217,9 @@ public class CustomerInformationDAOTest extends BaseDAOTests {
     	customerInformationEntity = customerInformationDao.updateCustomerInformationEntity(customerInformationEntity);
     	System.out.println("testUpdateCustomer : FINISHED");   	   	
     }
+    @Test
+    public void testDeleteCustomerById()
+    {
+    	
+    }
 }

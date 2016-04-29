@@ -42,5 +42,11 @@ public class CustomerInformationDAOImpl implements CustomerInformationDAO {
 		this.sessionFactory.getCurrentSession().refresh(customerInformationEntity);
 		return customerInformationEntity;
 	}
+	@Override
+	public void deleteCustomerInformationEntity(long customerId)
+	{
+		CustomerInformationEntity deleteCustomer = new CustomerInformationEntity();
+		this.sessionFactory.getCurrentSession().delete(deleteCustomer);
+	}
 
 }
