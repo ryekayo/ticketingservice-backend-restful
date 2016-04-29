@@ -96,7 +96,7 @@ public class UserTicketDAOImpl implements UserTicketDAO
     @Override
     public List<UserTicketEntity> getUserTicketEntitiesByCustomerID(CustomerInformationEntity customerID)
     {
-    	List<UserTicketEntity> customerId = this.sessionFactory.getCurrentSession().createQuery("from UserTIcketEntity ticketId where customerId =?").setParameter(0, customerID).list();
+    	List<UserTicketEntity> customerId = this.sessionFactory.getCurrentSession().createQuery("from UserTicketEntity ticketId where customerId =?").setParameter(0, customerID).list();
     	return customerId;
     }
 }

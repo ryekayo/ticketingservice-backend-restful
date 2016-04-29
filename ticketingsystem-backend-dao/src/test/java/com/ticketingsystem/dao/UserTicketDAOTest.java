@@ -21,7 +21,7 @@ public class UserTicketDAOTest extends BaseDAOTests
     private UserTicketDAO userTicketDao;
 
     private long _id = 2;
-    private int _ticketNumber = 111111;
+    private int _ticketNumber = 1;
     // private String _opened = "04/08/2016";
     private String _priority = "HIGH";
     private String _caseOwner = "Ryan Kahil";
@@ -113,10 +113,24 @@ public class UserTicketDAOTest extends BaseDAOTests
         System.out.println("testCreateTicket: STARTING");
         // -----------------------------------------------------------------------------
         UserTicketEntity ticket = new UserTicketEntity();
-        //ticket.setTicketId(_ticketNumber);
+    	CustomerInformationEntity customer = new CustomerInformationEntity();
+    	long _customerId=1;
+    	customer.setCustomerId(_customerId);
+    	//customer.setCustomerName("TEST1");
+    	//customer.setCustomerEmail("test@test1.com");
+    	//customer.setCustomerPhone("111111");
+    	//customer.setCompanyName("TEST");
+    	//customer.setPriorityLevel("HIGH");
+    	
+    	ticket.setCustomerId(customer);
+        ticket.setTicketId(1);
+        ticket.setOpen(true);
         ticket.setDateOpened(new Date());
-        ticket.setPriorityType(_priority);
-        ticket.setCaseOwner(_caseOwner);
+        //ticket.setPriorityType(_priority);
+        //ticket.setCaseOwner(_caseOwner);
+        ticket.setLastModified(new Date());
+        //ticket.setStatus("OPEN");
+        
         // ------------------------------------------------------------------------------
         System.out.println("testCreateTicket: " + ticket.toString());
         // ------------------------------------------------------------------------------
@@ -133,13 +147,17 @@ public class UserTicketDAOTest extends BaseDAOTests
 
         // Create new ticket first
         UserTicketEntity ticket = new UserTicketEntity();
-        ticket.setTicketId(_ticketNumber);
+        CustomerInformationEntity customer = new CustomerInformationEntity();
+        customer.setCustomerId(4);
+        ticket.setCustomerId(customer);
+        ticket.setTicketId(8);
         ticket.setDateOpened(new Date());
         ticket.setPriorityType(_priority);
-        ticket.setCaseOwner(_caseOwner);
+        ticket.setCaseOwner("THOLMES");
+        ticket.setLastModified(new Date());
         ticket = userTicketDao.createUserTicketEntity(ticket);
         assertNotNull(ticket);
-        long ticketId = 0;
+        long ticketId = 8;
         if (ticket != null)
         {
             ticketId = ticket.getTicketId();
@@ -148,10 +166,10 @@ public class UserTicketDAOTest extends BaseDAOTests
         // ------------------------------------------------------------------------------
         long ticketNumber = ticketId;
         // ------------------------------------------------------------------------------
-        UserTicketEntity userTicket = userTicketDao.getUserTicketEntity(ticketNumber);
+        UserTicketEntity userTicket = userTicketDao.getUserTicketEntity(8);
         // ------------------------------------------------------------------------------
         assertEquals(userTicket.getPriorityType(), _priority);
-        assertEquals(userTicket.getCaseOwner(), _caseOwner);
+        assertEquals(userTicket.getCaseOwner(), "THOLMES");
         // ------------------------------------------------------------------------------
         System.out.println("retreiveTicketById: userTicket = " + userTicket.toString());
         System.out.println("retreiveTicketById: retreiveTicketById: FINISH");
@@ -185,24 +203,26 @@ public class UserTicketDAOTest extends BaseDAOTests
         System.out.println("testTicketUpdate: START");
         long Id = 3;
         // ------------------------------------------------------------------------------
-        int updateTicket = 111;
+        int updateTicket = 3;
         String updatePriority = "HIGH";
         String updateCaseOwner = "RyanTest";
         // ------------------------------------------------------------------------------
         UserTicketEntity tickets = userTicketDao.getUserTicketEntity(Id);
 
+        CustomerInformationEntity customer = new CustomerInformationEntity();
+        customer.setCustomerId(4);
         assertNotNull(tickets);    
         tickets.setDateOpened(new Date());
-        //tickets.setTicketId(updateTicket);
+        tickets.setTicketId(updateTicket);
         tickets.setCaseOwner(updateCaseOwner);
         tickets.setPriorityType(updatePriority);
-
+        tickets.setCustomerId(customer);
+        
         System.out.println("testTicketUpdate: " + tickets.toString());
         // -----------------------------------------------------------------------------
         // -----------------------------------------------------------------------------
         tickets = userTicketDao.updateUserTicketEntity(tickets);
         assertEquals(tickets.getTicketId(), updateTicket);
-        //assertEquals(tickets.getDateOpened(), new Date());
         assertEquals(tickets.getPriorityType(), updatePriority);
         assertEquals(tickets.getCaseOwner(), updateCaseOwner);
         System.out.println("testTicketUpdate: FINISH: CREATE");
@@ -265,7 +285,7 @@ public class UserTicketDAOTest extends BaseDAOTests
     	userTicketOne.setCaseOwner(_testOwner);
     	userTicketOne.setDateOpened(new Date());
     	userTicketOne.setPriorityType(_setPriorityTypeOne);
-    	//userTicketOne.setTicketId(_ticketNumber);
+    	userTicketOne.setTicketId(_ticketNumber);
     	userTicketOne = userTicketDao.saveUserTicketEntity(userTicketOne);
     	assertNotNull(userTicketOne);
     	System.out.println(userTicketOne.toString());
@@ -277,7 +297,7 @@ public class UserTicketDAOTest extends BaseDAOTests
     	userTicketTwo.setCaseOwner(_testOwnerTwo);
     	userTicketTwo.setDateOpened(new Date());
     	userTicketTwo.setPriorityType(_setPriorityTypeTwo);
-    	//userTicketTwo.setTicketId(_ticketNumberTwo);
+    	userTicketTwo.setTicketId(_ticketNumberTwo);
     	userTicketTwo = userTicketDao.saveUserTicketEntity(userTicketTwo);
     	assertNotNull(userTicketTwo);
     	System.out.println(userTicketTwo.toString());
@@ -289,7 +309,7 @@ public class UserTicketDAOTest extends BaseDAOTests
     	userTicketThree.setCaseOwner(_testOwnerThree);
     	userTicketThree.setDateOpened(new Date());
     	userTicketThree.setPriorityType(_setPriorityTypeThree);
-    	//userTicketThree.setTicketId(_ticketNumberThree);
+    	userTicketThree.setTicketId(_ticketNumberThree);
     	userTicketThree = userTicketDao.saveUserTicketEntity(userTicketThree);
     	assertNotNull(userTicketThree);
     	System.out.println(userTicketThree.toString());
