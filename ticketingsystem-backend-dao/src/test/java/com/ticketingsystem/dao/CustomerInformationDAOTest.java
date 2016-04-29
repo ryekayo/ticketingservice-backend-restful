@@ -252,4 +252,58 @@ public class CustomerInformationDAOTest extends BaseDAOTests {
     	assertNotNull(customer);
     	System.out.println("testFetchCustomerListFetch : FINISHED");
     }
+    @Test
+    public void testFetchCustomerListFetchByEntity()
+    {
+    	System.out.println("testFetchCustomerListFetchByEntity : START");
+    	CustomerInformationEntity customerInformationEntity = new CustomerInformationEntity();
+    	long _customerIdTwo = 2;
+    	String _customerNameTwo = "Larry Bird";
+    	String _customerEmailTwo = "lbird@celtics.com";
+    	String _customerPhoneTwo = "222-222-2222";
+    	String _customerCompanyTwo = "Boston Celtics";
+    	String _priorityTwo = "MEDIUM";
+    	boolean _isEscalatedTwo = true;
+    	//----------------------------------------------------------------------------------------------
+    	customerInformationEntity.setCustomerId(_customerIdTwo);
+    	customerInformationEntity.setCustomerName(_customerNameTwo);
+    	customerInformationEntity.setCustomerEmail(_customerEmailTwo);
+    	customerInformationEntity.setCustomerPhone(_customerPhoneTwo);
+    	customerInformationEntity.setCompanyName(_customerCompanyTwo);
+    	customerInformationEntity.setPriorityLevel(_priorityTwo);
+    	customerInformationEntity.setEscalated(_isEscalatedTwo);
+    	//----------------------------------------------------------------------------------------------
+    	assertNotNull(customerInformationEntity);
+    	System.out.println("customerInformationEntity: " + customerInformationEntity.toString());
+    	customerInformationDao.getCustomerInformationEntitiesByCustomer(customerInformationEntity);
+    	System.out.println("testFetchCustomerListFetchByEntity : FINISHED");
+    }
+    @Test
+    public void testFetchCustomerListById()
+    {
+    	long _customerId = 1;
+    	System.out.println("testFetchCustomerListById : START");
+    	//-----------------------------------------------------------------------------------------------
+    	List<CustomerInformationEntity> customer = customerInformationDao.getCustomerInformationEntitiesByCustomerId(_customerId);
+    	if(customer != null)
+    	{
+    		System.out.println("testFetchCustomerListById size: " + customer.size());
+    	}
+    	assertNotNull(_customerId);
+    	System.out.println("testFetchCustomerListById : FINISHED");
+    }
+    @Test
+    public void testFetchCustomerListByCustomerName()
+    {
+    	String _customerName = "Larry Bird";
+    	System.out.println("testFetchCustomerListByCustomerName : START");
+    	//----------------------------------------------------------------------------------------------------
+    	List<CustomerInformationEntity> customer = customerInformationDao.getCustomerInformationEntitiesByCustomerName(_customerName);
+    	if(customer != null)
+    	{
+    		System.out.println("testFetchCustomerListByCustomerName: " + customer.toString());
+    	}
+    	assertNotNull(customer);
+    	System.out.println("testFetchCustomerListByCustomerName : FINISHED");
+    }
 }

@@ -67,4 +67,22 @@ public class CustomerInformationDAOImpl implements CustomerInformationDAO {
 	{
 		return (CustomerInformationEntity) this.sessionFactory.getCurrentSession().get(CustomerInformationEntity.class, customerId);
 	}
+	@Override
+	public List<CustomerInformationEntity> getCustomerInformationEntitiesByCustomer(CustomerInformationEntity customerInformationEntity)
+	{
+		List<CustomerInformationEntity> customer = this.sessionFactory.getCurrentSession().createQuery("from CustomerInformationEntity customerId where customerId = ?").setParameter(0,customerInformationEntity).list();
+		return customer;
+	}
+	@Override
+	public List<CustomerInformationEntity> getCustomerInformationEntitiesByCustomerId(long customerId)
+	{
+		List<CustomerInformationEntity> id = this.sessionFactory.getCurrentSession().createQuery("from CustomerInformationEntity customerId where customerId = ?").setParameter(0, customerId).list();
+		return id;
+	}
+	@Override
+	public List<CustomerInformationEntity> getCustomerInformationEntitiesByCustomerName(String customerName)
+	{
+		List<CustomerInformationEntity> customer = this.sessionFactory.getCurrentSession().createQuery("from CustomerInformationEntity customerName where customerName = ?").setParameter(0, customerName).list();
+		return customer;
+	}
 }
