@@ -290,6 +290,8 @@ public class CustomerInformationDAOTest extends BaseDAOTests {
     		System.out.println("testFetchCustomerListById size: " + customer.size());
     	}
     	assertNotNull(_customerId);
+    	System.out.println("testFetchCustomerListById: " + customer.toString());
+    	customerInformationDao.getCustomerInformationEntitiesByCustomerId(_customerId);
     	System.out.println("testFetchCustomerListById : FINISHED");
     }
     @Test
@@ -304,6 +306,7 @@ public class CustomerInformationDAOTest extends BaseDAOTests {
     		System.out.println("testFetchCustomerListByCustomerName: " + customer.toString());
     	}
     	assertNotNull(customer);
+    	customerInformationDao.getCustomerInformationEntitiesByCustomerName(_customerName);
     	System.out.println("testFetchCustomerListByCustomerName : FINISHED");
     }
 }
