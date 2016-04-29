@@ -34,5 +34,13 @@ public class CustomerInformationDAOImpl implements CustomerInformationDAO {
 		this.sessionFactory.getCurrentSession().refresh(customerInformationEntity);
 		return customerInformationEntity;
 	}
+	@Override
+	public CustomerInformationEntity updateCustomerInformationEntity(CustomerInformationEntity customerInformationEntity)
+	{
+		this.sessionFactory.getCurrentSession().update(customerInformationEntity);
+		this.sessionFactory.getCurrentSession().flush();
+		this.sessionFactory.getCurrentSession().refresh(customerInformationEntity);
+		return customerInformationEntity;
+	}
 
 }

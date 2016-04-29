@@ -191,4 +191,30 @@ public class CustomerInformationDAOTest extends BaseDAOTests {
     	customerInformationEntity = customerInformationDao.createCustomerInformationEntity(customerInformationEntity);
     	System.out.println("testCustomerEntityCreate : FINISHED");
     }
+    @Test
+    public void testUpdateCustomer()
+    {
+    	System.out.println("testUpdateCustomer : START");
+    	CustomerInformationEntity customerInformationEntity = new CustomerInformationEntity();
+    	//------------------------------------------------------------------------------------------------------------
+    	long _customerId = 1;
+    	String _customerName = "Michael Jay";
+    	String _customerEmail = "mjordan@whitesox.com";
+    	String _customerPhone = "555-555-5555";
+    	String _customerCompany = "Chicago WhiteSox";
+    	String _priority = "HIGH";
+    	boolean isEscalated = false;
+    	//----------------------------------------------------------------------------------------------------
+    	customerInformationEntity.setCustomerId(_customerId);
+    	customerInformationEntity.setCustomerName(_customerName);
+    	customerInformationEntity.setCustomerEmail(_customerEmail);
+    	customerInformationEntity.setCustomerPhone(_customerPhone);
+    	customerInformationEntity.setCompanyName(_customerCompany);
+    	customerInformationEntity.setPriorityLevel(_priority);
+    	customerInformationEntity.setEscalated(isEscalated);   	
+    	System.out.println("testUpdateCustomer: " + customerInformationEntity.toString());
+    	//-----------------------------------------------------------------------------------------------
+    	customerInformationEntity = customerInformationDao.updateCustomerInformationEntity(customerInformationEntity);
+    	System.out.println("testUpdateCustomer : FINISHED");   	   	
+    }
 }
