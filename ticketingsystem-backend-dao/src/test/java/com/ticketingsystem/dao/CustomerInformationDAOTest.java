@@ -1,6 +1,7 @@
 package com.ticketingsystem.dao;
 
 import java.util.HashSet;
+import java.util.List;
 
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -218,8 +219,37 @@ public class CustomerInformationDAOTest extends BaseDAOTests {
     	System.out.println("testUpdateCustomer : FINISHED");   	   	
     }
     @Test
-    public void testDeleteCustomerById()
+    public void testDeleteCustomer()
     {
+    	System.out.println("testDeleteCustomer : START");
+    	long _customerId = 1;
+    	CustomerInformationEntity deleteCustomer = customerInformationDao.getCustomerInformationEntity(_customerId);
+    	assertNotNull(deleteCustomer);
+    	//-------------------------------------------------------------------------------------------------
+    	customerInformationDao.deleteCustomerInformationEntity(_customerId);
+    	System.out.println("testDeleteCustomer : DELETED");
+    	//----------------------------------------------------------------------------------------------------
+    	System.out.println("testDeleteCustomerTwo : START");
+    	long _customerIdTwo = 4;
+    	CustomerInformationEntity deleteCustomerTwo = customerInformationDao.getCustomerInformationEntity(_customerIdTwo);
+    	assertNotNull(deleteCustomerTwo);
+    	//-----------------------------------------------------------------------------------------------------
+    	customerInformationDao.deleteCustomerInformationEntity(deleteCustomerTwo);
+    	System.out.println("testDeleteCustomerTWO: DELETED");
+    	//----------------------------------------------------------------------------------------------------
+    	System.out.println("testDeleteCustomer: FINISHED");
+    }
+    @Test
+    public void testFetchCustomerListFetch()
+    {
+    	System.out.println("testFetchCustomerListFetch : START");
     	
+    	List<CustomerInformationEntity> customer = customerInformationDao.getAllCustomerInformationEntities();
+    	if(customer != null)
+    	{
+    		System.out.println("testFetchCustomerListFetch size : " + customer.size());
+    	}
+    	assertNotNull(customer);
+    	System.out.println("testFetchCustomerListFetch : FINISHED");
     }
 }

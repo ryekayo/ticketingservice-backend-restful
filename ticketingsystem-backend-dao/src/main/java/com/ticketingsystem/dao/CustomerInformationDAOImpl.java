@@ -1,5 +1,7 @@
 package com.ticketingsystem.dao;
 
+import java.util.List;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.SessionFactory;
@@ -48,5 +50,21 @@ public class CustomerInformationDAOImpl implements CustomerInformationDAO {
 		CustomerInformationEntity deleteCustomer = new CustomerInformationEntity();
 		this.sessionFactory.getCurrentSession().delete(deleteCustomer);
 	}
-
+	@Override
+	public void deleteCustomerInformationEntity(CustomerInformationEntity customerInformationEntity)
+	{
+		this.sessionFactory.getCurrentSession().delete(customerInformationEntity);
+	}
+	@Override
+	public List<CustomerInformationEntity> getAllCustomerInformationEntities()
+	{
+		String query = "from CustomerInformationEntity";
+		List<CustomerInformationEntity> customer = this.sessionFactory.getCurrentSession().createQuery(query).list();
+		return customer;
+	}
+	@Override
+	public CustomerInformationEntity getCustomerInformationEntity(long customerId)
+	{
+		return (CustomerInformationEntity) this.sessionFactory.getCurrentSession().get(CustomerInformationEntity.class, customerId);
+	}
 }

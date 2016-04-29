@@ -94,7 +94,6 @@ public class UserTicketDAOTest extends BaseDAOTests
     public void testTicketListFetch() throws Exception
     {
         System.out.println("STARTING TEST TO GET TICKET LIST");
-        UserTicketEntity userTicketEntity = new UserTicketEntity();
 
         List<UserTicketEntity> ticket = userTicketDao.getAllUserTicketEntities();
         if (ticket != null)
