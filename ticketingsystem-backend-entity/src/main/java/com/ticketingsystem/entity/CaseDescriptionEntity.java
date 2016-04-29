@@ -40,7 +40,7 @@ public class CaseDescriptionEntity implements Serializable
     @Column(name = "last_modified_by")
     private String lastModifiedBy;
 
-    public void setId()
+    public void setId(long id)
     {
     	this.id = id;
     }
