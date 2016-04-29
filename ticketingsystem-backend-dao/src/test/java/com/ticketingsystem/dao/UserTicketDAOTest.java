@@ -22,7 +22,6 @@ public class UserTicketDAOTest extends BaseDAOTests
 
     private long _id = 2;
     private int _ticketNumber = 1;
-    // private String _opened = "04/08/2016";
     private String _priority = "HIGH";
     private String _caseOwner = "Ryan Kahil";
 
@@ -48,7 +47,6 @@ public class UserTicketDAOTest extends BaseDAOTests
         String priorityOne = "LOW";
         String caseOwnerOne = "John Doe";
         UserTicketEntity userTicketEntity1 = new UserTicketEntity();
-//        userTicketEntity = new UserTicketEntity();
         userTicketEntity.setTicketId(ticketOne);
         userTicketEntity.setDateOpened(new Date());
         userTicketEntity.setPriorityType(priorityOne);

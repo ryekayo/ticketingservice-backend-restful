@@ -98,7 +98,7 @@ public class CustomerInformationEntity implements Serializable
         this.priorityLevel = priorityLevel;
     }
 
-    public boolean isEscalated()
+    public boolean getEscalated()
     {
         return isEscalated;
     }
