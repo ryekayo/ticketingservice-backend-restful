@@ -46,7 +46,6 @@ public class UserTicketDAOTest extends BaseDAOTests
         long ticketOne = 1;
         String priorityOne = "LOW";
         String caseOwnerOne = "John Doe";
-        UserTicketEntity userTicketEntity1 = new UserTicketEntity();
         userTicketEntity.setTicketId(ticketOne);
         userTicketEntity.setDateOpened(new Date());
         userTicketEntity.setPriorityType(priorityOne);
