@@ -28,6 +28,6 @@ public interface EmailHistoryDAO {
 	
 	public List<EmailHistoryEntity> getAllEmailHistoryEntitiesByEmailHistoryId(long emailHistoryId);
 	
-	public List<EmailHistoryEntity> getAllEmailHistoryEntitiesByEmailSent(String emailSent);
+	public List<EmailHistoryEntity> getAllEmailHistoryEntitiesByFromEmail(String fromEmail);
 
 }

@@ -2,6 +2,7 @@ package com.ticketingsystem.dao;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -214,5 +215,128 @@ public class EmailHistoryDAOTest extends BaseDAOTests {
     	System.out.println("emailHistory: " + emailHistory.toString());
     	//--------------------------------------------------------------------------------------------------------
     	System.out.println("testCreateEmailHistoryEntity : FINISHED");
+    }
+    @Test
+    public void testUpdateEmailHistoryEntity()
+    {
+    	System.out.println("testUpdateEmailHistoryEntity : STARTING");
+    	EmailHistoryEntity emailHistory = new EmailHistoryEntity();
+    	UserTicketEntity userTicket = new UserTicketEntity();
+    	UserEntity user = new UserEntity();
+    	long _emailHistoryId = 10;
+    	long _ticketId = 6;
+    	long _userId = 1;
+    	String _emailSent = "TESTING UPDATE";
+    	String _fromEMail = "test123";
+    	String _toEmail = "321test";
+    	userTicket.setTicketId(_ticketId);
+    	user.setUserId(_userId);
+    	//--------------------------------------------------------------------------------------------------------
+    	emailHistory.setEmailHistoryId(_emailHistoryId);
+    	emailHistory.setUserId(user);
+    	emailHistory.setTicketNumber(userTicket);
+    	emailHistory.setEmailSent(_emailSent);
+    	emailHistory.setFromEmail(_fromEMail);
+    	emailHistory.setToEmail(_toEmail);
+    	emailHistory.setEmailTimestamp(new Date());
+    	assertNotNull(emailHistory);
+    	emailHistory = emailHistoryDAO.updateEmailHistoryEntity(emailHistory);
+    	System.out.println("emailHistory: " + emailHistory.toString());
+    	//---------------------------------------------------------------------------------------------------------
+    	System.out.println("testUpdateEmailHistoryEntity : FINISHED");   	
+    }
+    @Test
+    public void testDeleteEmailHistoryEntity()
+    {
+    	System.out.println("testDeleteEmailHistoryEntity : STARTING");
+    	long _historyId = 2;
+    	EmailHistoryEntity emailHistory = emailHistoryDAO.getAllEmailHistoryEntities(_historyId);
+    	assertNotNull(emailHistory);
+    	//---------------------------------------------------------------------------------------------------------
+    	System.out.println("testDeleteEmailHistoryEntityOne : START");
+    	emailHistoryDAO.deleteEmailHistoryEntity(_historyId);
+    	System.out.println("testDeleteEmailHistoryEntityOne : DELETED");
+    	//----------------------------------------------------------------------------------------------------------
+    	long _historyIdTwo = 6;
+    	EmailHistoryEntity emailHistoryTwo  = emailHistoryDAO.getAllEmailHistoryEntities(_historyIdTwo);
+    	assertNotNull(emailHistoryTwo);
+    	//-----------------------------------------------------------------------------------------------------------
+    	System.out.println("testDeleteEmailHistoryEntityTwo : START");
+    	emailHistoryDAO.deleteEmailHistoryEntity(emailHistoryTwo);
+    	System.out.println("testDeleteEmailHistoryEntityTwo : DELETED");
+    	//------------------------------------------------------------------------------------------------------------
+    	System.out.println("testDeleteEmailHistoryEntity : FINISHED");
+    }
+    @Test
+    public void testFetchGetAllEmailHistoryEntities()
+    {
+    	System.out.println("testFetchGetAllEmailHistoryEntities : STARTING");
+    	List<EmailHistoryEntity> history = emailHistoryDAO.getAllEmailHistoryEntities();
+    	if(history != null)
+    	{
+    		System.out.println("testFetchGetAllEmailHistoryEntities size: " + history.size());
+    	}
+    	assertNotNull(history);
+    	System.out.println("testFetchGetAllEmailHistoryEntities : FINISHED");
+    }
+    @Test
+    public void testFetchGetAllEmailHistoryEntitiesByUserTicketId()
+    {
+    	System.out.println("testFetchGetAllEmailHistoryEntitiesByUserTicketId : STARTING");
+    	long _ticketId = 1;
+    	UserTicketEntity userTicket = new UserTicketEntity();
+    	userTicket.setTicketId(_ticketId);
+    	List<EmailHistoryEntity> history = emailHistoryDAO.getAllEmailHistoryEntitiesByTicketId(userTicket);
+    	if(history != null)
+    	{
+    		System.out.println("testFetchGetAllEmailHistoryEntitiesByUserTicketId size: " + history.size());
+    	}
+    	assertNotNull(history);
+    	emailHistoryDAO.getAllEmailHistoryEntitiesByTicketId(userTicket);
+    	System.out.println("testFetchGetAllEmailHistoryEntitiesByUserTicketId : FINISHED");
+    }
+    @Test
+    public void testFetchGetAllEmailHistoryEntitiesByUserId()
+    {
+    	System.out.println("testFetchGetAllEmailHistoryEntitiesByUserId : STARTING");
+    	long _userId = 1;
+    	UserEntity user = new UserEntity();
+    	user.setUserId(_userId);
+    	List<EmailHistoryEntity> history = emailHistoryDAO.getAllEmailHistoryEntitiesByUserId(user);
+    	if(history != null)
+    	{
+    		System.out.println("testFetchGetAllEmailHistoryEntitiesByUserId size: " + history.size());
+    	}
+    	assertNotNull(history);
+    	emailHistoryDAO.getAllEmailHistoryEntitiesByUserId(user);
+    	System.out.println("testFetchGetAllEmailHistoryEntitiesByUserId : FINISHED");
+    }
+    @Test
+    public void testFetchGetAllEmailHistoryEntitiesByEmailHistoryId()
+    {
+    	System.out.println("testFetchGetAllEmailHistoryEntitiesByEmailHistoryId : STARTING");
+    	long _emailHistoryId = 10;
+    	List<EmailHistoryEntity> history = emailHistoryDAO.getAllEmailHistoryEntitiesByEmailHistoryId(_emailHistoryId);
+    	if(history != null)
+    	{
+    		System.out.println("testFetchGetAllEmailHistoryEntitiesByEmailHistoryId: " + history.toString());
+    	}
+    	assertNotNull(history);
+    	emailHistoryDAO.getAllEmailHistoryEntitiesByEmailHistoryId(_emailHistoryId);
+    	System.out.println("testFetchGetAllEmailHistoryEntitiesByEmailHistoryId : FINISHED");
+    }
+    @Test
+    public void testFetchGetAllEmailHistoryEntitiesByEmailSent()
+    {
+    	System.out.println("testFetchGetAllEmailHistoryEntitiesByEmailSent : STARTING");
+    	String _fromEmail = "rkahil@test.com";
+    	List<EmailHistoryEntity> history = emailHistoryDAO.getAllEmailHistoryEntitiesByFromEmail(_fromEmail);
+    	if(history != null)
+    	{
+    		System.out.println("testFetchGetAllEmailHistoryEntitiesByEmailSent: " + history.toString());
+    	}
+    	assertNotNull(history);
+    	emailHistoryDAO.getAllEmailHistoryEntitiesByFromEmail(_fromEmail);
+    	System.out.println("testFetchGetAllEmailHistoryEntitiesByEmailSent : FINISHED");
     }
 }
