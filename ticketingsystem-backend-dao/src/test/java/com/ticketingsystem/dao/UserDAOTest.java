@@ -1,7 +1,5 @@
 package com.ticketingsystem.dao;
 
-import static org.junit.Assert.*;
-
 import java.util.HashSet;
 import java.util.List;
 

@@ -69,7 +69,7 @@ public class EmailHistoryEntity implements Serializable
         return userId;
     }
 
-    public void getUserId(UserEntity userId)
+    public void setUserId(UserEntity userId)
     {
         this.userId = userId;
     }

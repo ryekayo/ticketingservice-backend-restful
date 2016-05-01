@@ -27,4 +27,12 @@ public class EmailHistoryDAOImpl implements EmailHistoryDAO {
 		this.sessionFactory.getCurrentSession().saveOrUpdate(emailHistoryEntity);
 		return emailHistoryEntity;
 	}
+	@Override
+	public EmailHistoryEntity createEmailHistoryEntity(EmailHistoryEntity emailHistoryEntity)
+	{
+		this.sessionFactory.getCurrentSession().save(emailHistoryEntity);
+		this.sessionFactory.getCurrentSession().flush();
+		this.sessionFactory.getCurrentSession().refresh(emailHistoryEntity);
+		return emailHistoryEntity;
+	}
 }
