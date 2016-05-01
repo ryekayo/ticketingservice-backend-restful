@@ -26,7 +26,7 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public UserEntity saveUserEntity(UserEntity userEntity)
 	{
-		this.sessionFactory.getCurrentSession().save(userEntity);
+		this.sessionFactory.getCurrentSession().saveOrUpdate(userEntity);
 		return userEntity;
 	}
 	@Override

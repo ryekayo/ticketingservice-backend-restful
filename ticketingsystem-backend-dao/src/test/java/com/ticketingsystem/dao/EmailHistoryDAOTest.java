@@ -24,8 +24,7 @@ public class EmailHistoryDAOTest extends BaseDAOTests {
 	private String _emailSent = "THISISATEST";
 	private String _fromEmail = "rkahil@test.com";
 	private String _toEmail = "mjordan@bulls.com";
-	
-	
+		
     protected void setUp() throws Exception
     {
         System.out.println("Loading application context");
