@@ -3,6 +3,7 @@ package com.ticketingsystem.dao;
 import static org.junit.Assert.*;
 
 import java.util.HashSet;
+import java.util.List;
 
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -196,5 +197,81 @@ public class UserDAOTest extends BaseDAOTests {
     	System.out.println("userEntity: " + userEntity.toString());
     	System.out.println("testUserUpdate : FINISHED");
     }
-
+    @Test
+    public void testDeleteUserEntity()
+    {
+    	System.out.println("testDeleteUserEntity : STARTING");
+    	long _id = 1;
+    	UserEntity userEntityOne = userDao.getUserEntity(_id);
+    	assertNotNull(userEntityOne);
+    	//---------------------------------------------------------------------------------------------------
+    	System.out.println("userEntityOne : START");
+    	userDao.deleteUserEntity(_id);
+    	System.out.println("userEntityOne : DELETED");
+    	//----------------------------------------------------------------------------------------------------
+    	System.out.println("userEntityTwo : START");
+    	long _idTwo = 2;
+    	UserEntity userEntityTwo = userDao.getUserEntity(_idTwo);
+    	assertNotNull(userEntityTwo);
+    	//-------------------------------------------------------------------------------------------------------
+    	userDao.deleteUserEntity(userEntityTwo);
+    	System.out.println("userEntityTwo : DELETED");
+    	//-------------------------------------------------------------------------------------------------------
+    	System.out.println("testDeleteUserEntity : FINISHED");
+    }
+    @Test
+    public void testFetchUserList()
+    {
+    	System.out.println("testFetchUserList : STARTING");
+    	
+    	List<UserEntity> user = userDao.getAllUserEntities();
+    	if(user != null)
+    	{
+    		System.out.println("testFetchUserList size: " + user.size());
+    	}
+    	assertNotNull(user);
+    	System.out.println("testFetchUserList : FINISHED");
+    }
+    @Test
+    public void testFetchUserListEntitiesByUserName()
+    {
+    	System.out.println("testFetchUserListEntitiesByUserName : STARTING");
+    	String _userName = "rkahil";
+    	List<UserEntity> user = userDao.getAllUserEntitiesByUserName(_userName);
+    	if(user != null)
+    	{
+    		System.out.println("testFetchListEntitiesByUserName: " + user.toString());
+    	}
+    	assertNotNull(user);
+    	userDao.getAllUserEntitiesByUserName(_userName);
+    	System.out.println("testFetchListEntitiesByUserName : FINISHED");
+    }
+    @Test
+    public void testFetchUserListEntitiesByEmailAddress()
+    {
+    	System.out.println("testFetchUserListEntitiesByEmailAddress : STARTING");
+    	String _emailAddress = "rkahil@test.com";
+    	List<UserEntity> email = userDao.getAllUserEntitiesByEmail(_emailAddress);
+    	if(email != null)
+    	{
+    		System.out.println("testFetchUserListEntitiesByEmailAddress: " + email.toString());
+    	}
+    	assertNotNull(email);
+    	userDao.getAllUserEntitiesByEmail(_emailAddress);
+    	System.out.println("testFetchUserListEntitiesByEmailAddress : FINISHED");
+    }
+    @Test
+    public void testFetchUserListEntitiesByUserId()
+    {
+    	System.out.println("testFetchUserListEntitiesByUserId : STARTING");
+    	long _userId = 1;
+    	List<UserEntity> id = userDao.getAllUserEntitiesById(_userId);
+    	if(id != null)
+    	{
+    		System.out.println("testFetchUserListEntitiesByUserId: " + id.toString());
+    	}
+    	assertNotNull(id);
+    	userDao.getAllUserEntitiesById(_userId);
+    	System.out.println("testFetchUserListEntitiesByUserId : FINISHED");
+    }
 }

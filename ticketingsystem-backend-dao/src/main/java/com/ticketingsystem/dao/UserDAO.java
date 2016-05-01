@@ -24,5 +24,5 @@ public interface UserDAO {
 	
 	public List<UserEntity> getAllUserEntitiesByEmail(String emailAddress);
 	
-	public List<UserEntity> getAllUserEntitiesByPhoneNumber(String phoneNumber);
+	public List<UserEntity> getAllUserEntitiesById(long userId);
 }
