@@ -50,7 +50,14 @@ public class UserRolesEntity implements Serializable
     {
         this.roleId = roleId;
     }
-    
+    public UserEntity getUserId()
+    {
+    	return userId;
+    }
+    public void setUserId(UserEntity userId)
+    {
+    	this.userId = userId;
+    }
     @Override
     public int hashCode()
     {
