@@ -20,11 +20,7 @@ public class EscalationStatusDAOTest extends BaseDAOTests {
 	@Autowired
 	private EscalationStatusDAO escalationStatusDAO;
 	
-	private boolean _isEscalated = true;
-	private String _assignedTo = "RKAHIL";
-	private String _notes = "TEST1";
-	
-    protected void setUp() throws Exception
+	protected void setUp() throws Exception
     {
         System.out.println("Loading application context");
         System.out.println("Done Loading application context");

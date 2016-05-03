@@ -17,15 +17,7 @@ public class CustomerInformationDAOTest extends BaseDAOTests {
 	@Autowired
 	private CustomerInformationDAO customerInformationDao;
 	
-	private long _customerId = 1;
-	private String _customerName = "Michael Jordan";
-	private String _customerEmail = "mjordan@bulls.com";
-	private String _customerPhone = "111-111-1111";
-	private String _customerCompany = "Chicago Bulls";
-	private String _priority = "HIGH";
-	private boolean isEscalated = false;
-	
-    protected void setUp() throws Exception
+	protected void setUp() throws Exception
     {
         System.out.println("Loading application context");
         System.out.println("Done Loading application context");

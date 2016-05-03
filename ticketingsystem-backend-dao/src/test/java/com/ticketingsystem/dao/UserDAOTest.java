@@ -17,14 +17,7 @@ public class UserDAOTest extends BaseDAOTests {
 	@Autowired
 	private UserDAO userDao;
 	
-	private long _userId = 1;
-	private String _userName = "rkahil";
-	private String _name = "RYAN KAHIL";
-	private String _userEmail = "rkahil@test.com";
-	private String _title = "VP";
-	private String _phoneNumber = "555-555-5555";
-	
-    protected void setUp() throws Exception
+	protected void setUp() throws Exception
     {
         System.out.println("Loading application context");
         System.out.println("Done Loading application context");

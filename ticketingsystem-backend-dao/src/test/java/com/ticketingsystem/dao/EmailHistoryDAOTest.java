@@ -20,12 +20,7 @@ public class EmailHistoryDAOTest extends BaseDAOTests {
 	@Autowired
 	private EmailHistoryDAO emailHistoryDAO;
 	
-	private long _emailHistoryId = 2;
-	private String _emailSent = "THISISATEST";
-	private String _fromEmail = "rkahil@test.com";
-	private String _toEmail = "mjordan@bulls.com";
-		
-    protected void setUp() throws Exception
+	protected void setUp() throws Exception
     {
         System.out.println("Loading application context");
         System.out.println("Done Loading application context");

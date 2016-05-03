@@ -20,11 +20,6 @@ public class UserTicketDAOTest extends BaseDAOTests
     @Autowired
     private UserTicketDAO userTicketDao;
 
-    private long _id = 2;
-    private int _ticketNumber = 1;
-    private String _priority = "HIGH";
-    private String _caseOwner = "Ryan Kahil";
-
     protected void setUp() throws Exception
     {
         System.out.println("Loading application context");
@@ -148,7 +143,7 @@ public class UserTicketDAOTest extends BaseDAOTests
         ticket.setCustomerId(customer);
         ticket.setTicketId(8);
         ticket.setDateOpened(new Date());
-        ticket.setPriorityType(_priority);
+        ticket.setPriorityType("MEDIUM");
         ticket.setCaseOwner("THOLMES");
         ticket.setLastModified(new Date());
         ticket = userTicketDao.createUserTicketEntity(ticket);
@@ -160,11 +155,9 @@ public class UserTicketDAOTest extends BaseDAOTests
         }
 
         // ------------------------------------------------------------------------------
-        long ticketNumber = ticketId;
-        // ------------------------------------------------------------------------------
         UserTicketEntity userTicket = userTicketDao.getUserTicketEntity(8);
         // ------------------------------------------------------------------------------
-        assertEquals(userTicket.getPriorityType(), _priority);
+        assertEquals(userTicket.getPriorityType(), "HIGH");
         assertEquals(userTicket.getCaseOwner(), "THOLMES");
         // ------------------------------------------------------------------------------
         System.out.println("retreiveTicketById: userTicket = " + userTicket.toString());

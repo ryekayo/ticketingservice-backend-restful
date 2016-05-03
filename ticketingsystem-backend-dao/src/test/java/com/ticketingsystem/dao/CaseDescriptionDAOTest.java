@@ -20,13 +20,7 @@ public class CaseDescriptionDAOTest extends BaseDAOTests {
 	@Autowired
 	private CaseDescriptionDAO caseDescriptionDAO;
 	
-	private long _id = 1;
-	private long _ticketId = 1;
-	private String _caseDesc = "TESTING1";
-	private String _openedBy = "RKAHIL";
-	private String _lastModBy = "RKAHIL";
-	
-    protected void setUp() throws Exception
+	protected void setUp() throws Exception
     {
         System.out.println("Loading application context");
         System.out.println("Done Loading application context");

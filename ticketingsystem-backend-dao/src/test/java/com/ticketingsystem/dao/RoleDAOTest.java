@@ -17,13 +17,7 @@ public class RoleDAOTest extends BaseDAOTests {
 	@Autowired
 	private RoleDAO roleDAO;
 	
-	private long _roleId = 6;
-	private boolean _adminAccess = true;
-	private boolean _moderatorAccess = false;
-	private boolean _observerAccess = false;
-	private String roleName = "ADMIN";
-	
-    protected void setUp() throws Exception
+	protected void setUp() throws Exception
     {
         System.out.println("Loading application context");
         System.out.println("Done Loading application context");
