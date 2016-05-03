@@ -44,7 +44,7 @@ public class CaseDescriptionDAOTest extends BaseDAOTests {
     	String _openedByTwo = "RKAHIL";
     	String _lastModifiedBy = "RKAHIL";
     	//-----------------------------------------------------------------------------------------------------
-    	caseDescriptionEntity.setId(_idTwo);
+    	//caseDescriptionEntity.setId(_idTwo);
     	caseDescriptionEntity.setTicketId(ticketTwo);
     	caseDescriptionEntity.setDescription(_caseDescTwo);
     	caseDescriptionEntity.setLastModified(new Date());
@@ -63,7 +63,7 @@ public class CaseDescriptionDAOTest extends BaseDAOTests {
     	String _openedByThree = "THOLMES";
     	String _lastModifiedByThree = "THOLMES";
     	//------------------------------------------------------------------------------------------------------
-    	caseDescriptionEntityThree.setId(_idThree);
+    	//caseDescriptionEntityThree.setId(_idThree);
     	caseDescriptionEntityThree.setTicketId(ticketThree);
     	caseDescriptionEntityThree.setDescription(_caseDescThree);
     	caseDescriptionEntityThree.setLastModified(new Date());
@@ -82,7 +82,7 @@ public class CaseDescriptionDAOTest extends BaseDAOTests {
     	String _openedByFour = "RKAHIL";
     	String _lastModifiedByFour = "THOLMES";
     	//-----------------------------------------------------------------------------------------------------------
-    	caseDescriptionEntityFour.setId(_idFour);
+    	//caseDescriptionEntityFour.setId(_idFour);
     	caseDescriptionEntityFour.setTicketId(ticketFour);
     	caseDescriptionEntityFour.setDescription(_caseDescFour);
     	caseDescriptionEntityFour.setOpenedBy(_openedByFour);
@@ -99,7 +99,7 @@ public class CaseDescriptionDAOTest extends BaseDAOTests {
     	
     	UserTicketEntity ticketOne = new UserTicketEntity();
     	long _id = 1;
-        long _ticketId = 1;
+        long _ticketId = 100;
     	String _caseDesc = "TESTING1";
     	String _openedBy = "RKAHIL";
     	String _lastModBy = "RKAHIL";
@@ -117,7 +117,7 @@ public class CaseDescriptionDAOTest extends BaseDAOTests {
     	System.out.println("caseDescriptionOne: " + caseDescriptionOne.toString());
     	//----------------------------------------------------------------------------------------------------------
     	UserTicketEntity ticketTwo = new UserTicketEntity();
-    	long _idTwo = 2;
+    	long _idTwo = 200;
     	long _ticketIdTwo = 2;
     	String _caseDescTwo = "TESTING2";
     	String _openedByTwo = "THOLMES";
@@ -135,7 +135,7 @@ public class CaseDescriptionDAOTest extends BaseDAOTests {
     	System.out.println("caseDescriptionTwo: " + caseDescriptionTwo.toString());
     	//---------------------------------------------------------------------------------------------------------------
     	UserTicketEntity ticketThree = new UserTicketEntity();
-    	long _idThree = 3;
+    	long _idThree = 300;
     	long _ticketIdThree = 3;
     	String _caseDescThree = "TESTING3";
     	String _openedByThree = "THOLMES";
@@ -168,7 +168,7 @@ public class CaseDescriptionDAOTest extends BaseDAOTests {
     	String _lastModBy = "RKAHIL";
     	ticketOne.setTicketId(_ticketId);
     	//------------------------------------------------------------------------------------------------------------------
-    	caseDescription.setId(_id);
+    	//caseDescription.setId(_id);
     	caseDescription.setTicketId(ticketOne);
     	caseDescription.setDescription(_caseDesc);
     	caseDescription.setOpenedBy(_openedBy);
@@ -255,7 +255,7 @@ public class CaseDescriptionDAOTest extends BaseDAOTests {
     	String lastModifiedBy = "RKAHIL";
     	userTicket.setTicketId(_ticketId);
     	//--------------------------------------------------------------------------------------------------------
-    	description.setId(_id);
+    	//description.setId(_id);
     	description.setTicketId(userTicket);
     	description.setDescription(caseDescription);
     	description.setOpenedBy(openedBy);
@@ -278,7 +278,7 @@ public class CaseDescriptionDAOTest extends BaseDAOTests {
     	String _lastModByTwo = "RKAHIL";
     	userTicketEntity.setTicketId(_ticketIdTwo);
     	//--------------------------------------------------------------------------------------------------------------
-    	caseDescriptionEntity.setId(_idTwo);
+    	//caseDescriptionEntity.setId(_idTwo);
     	caseDescriptionEntity.setTicketId(userTicketEntity);
     	caseDescriptionEntity.setDescription(_caseDescTwo);
     	caseDescriptionEntity.setLastModified(new Date());
@@ -287,7 +287,7 @@ public class CaseDescriptionDAOTest extends BaseDAOTests {
     	//--------------------------------------------------------------------------------------------------------------
     	assertNotNull(caseDescriptionEntity);
     	System.out.println("caseDescriptionEntity: " + caseDescriptionEntity.toString());
-    	caseDescriptionDAO.getAllCaseDescriptionEntitesByEntities(caseDescriptionEntity);
+    	caseDescriptionDAO.getAllCaseDescriptionEntitesByEntities(_idTwo);
     	System.out.println("caseDescriptionEntity : FINISHED");
     }
     @Test
@@ -305,7 +305,7 @@ public class CaseDescriptionDAOTest extends BaseDAOTests {
     	String _lastModByThree = "THOLMES";
     	//------------------------------------------------------------------------------------------------------------
     	caseDescriptionEntity.setTicketId(userTicketEntity);
-    	caseDescriptionEntity.setId(_idThree);
+    	//caseDescriptionEntity.setId(_idThree);
     	caseDescriptionEntity.setDescription(_caseDescThree);
     	caseDescriptionEntity.setLastModified(new Date());
     	caseDescriptionEntity.setOpenedBy(_openedByThree);

@@ -69,9 +69,9 @@ public class CaseDescriptionDAOImpl implements CaseDescriptionDAO {
 		return (CaseDescriptionEntity) this.sessionFactory.getCurrentSession().get(CaseDescriptionEntity.class, id);
 	}
 	@Override
-	public List<CaseDescriptionEntity> getAllCaseDescriptionEntitesByEntities(CaseDescriptionEntity caseDescriptionEntity)
+	public List<CaseDescriptionEntity> getAllCaseDescriptionEntitesByEntities(long id)
 	{
-		List<CaseDescriptionEntity> description = this.sessionFactory.getCurrentSession().createQuery("from CaseDescriptionEntity id where id =?").setParameter(0, caseDescriptionEntity).list();
+		List<CaseDescriptionEntity> description = this.sessionFactory.getCurrentSession().createQuery("from CaseDescriptionEntity where id =?").setParameter(0, id).list();
 		return description;
 	}
 	@Override

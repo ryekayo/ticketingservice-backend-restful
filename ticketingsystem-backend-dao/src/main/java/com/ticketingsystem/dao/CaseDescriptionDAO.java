@@ -21,7 +21,7 @@ public interface CaseDescriptionDAO {
 	
 	public CaseDescriptionEntity getCaseDescriptionEntity(long id);
 	
-	public List<CaseDescriptionEntity> getAllCaseDescriptionEntitesByEntities(CaseDescriptionEntity caseDescriptionEntity);
+	public List<CaseDescriptionEntity> getAllCaseDescriptionEntitesByEntities(long id);
 	
 	public List<CaseDescriptionEntity> getCaseDescriptionByTicket(UserTicketEntity userTicket);
 	

@@ -49,7 +49,7 @@ public class EmailHistoryDAOTest extends BaseDAOTests {
     	//---------------------------------------------------------------------------------------------
     	emailHistoryEntityOne.setEmailHistoryId(_emailHistoryId);
     	emailHistoryEntityOne.setTicketNumber(userTicketOne);
-    	emailHistoryEntityOne.setUserId(userOne);
+    	//emailHistoryEntityOne.setUserId(userOne);
     	emailHistoryEntityOne.setEmailSent(_emailSent);
     	emailHistoryEntityOne.setFromEmail(_fromEmail);
     	emailHistoryEntityOne.setToEmail(_toEmail);
@@ -70,7 +70,7 @@ public class EmailHistoryDAOTest extends BaseDAOTests {
     	userTwo.setUserId(_userIdTwo);
     	//---------------------------------------------------------------------------------------------
     	emailHistoryEntityTwo.setEmailHistoryId(_emailHistoryIdTwo);
-    	emailHistoryEntityTwo.setUserId(userTwo);
+    	//emailHistoryEntityTwo.setUserId(userTwo);
     	emailHistoryEntityTwo.setTicketNumber(userTicketTwo);
     	emailHistoryEntityTwo.setEmailSent(_emailSentTwo);
     	emailHistoryEntityTwo.setFromEmail(_fromEmailTwo);
@@ -92,7 +92,7 @@ public class EmailHistoryDAOTest extends BaseDAOTests {
     	userThree.setUserId(_userIdThree);
     	//-----------------------------------------------------------------------------------------------
     	emailHistoryEntityThree.setEmailHistoryId(_emailHistoryIdThree);
-    	emailHistoryEntityThree.setUserId(userThree);
+    	//emailHistoryEntityThree.setUserId(userThree);
     	emailHistoryEntityThree.setTicketNumber(userTicketThree);
     	emailHistoryEntityThree.setEmailSent(_emailSentThree);
     	emailHistoryEntityThree.setFromEmail(_fromEmailThree);
@@ -121,7 +121,7 @@ public class EmailHistoryDAOTest extends BaseDAOTests {
     	System.out.println("emailHistoryOne : SAVE : STARTING");
     	//-----------------------------------------------------------------------------------------------
     	emailHistoryOne.setEmailHistoryId(_emailHistoryId);
-    	emailHistoryOne.setUserId(userOne);
+    	//emailHistoryOne.setUserId(userOne);
     	emailHistoryOne.setTicketNumber(userTicketOne);
     	emailHistoryOne.setEmailSent(_emailSent);
     	emailHistoryOne.setFromEmail(_fromEmail);
@@ -145,7 +145,7 @@ public class EmailHistoryDAOTest extends BaseDAOTests {
     	userTwo.setUserId(_userIdTwo);
     	//--------------------------------------------------------------------------------------------------
     	emailHistoryTwo.setEmailHistoryId(_emailHistoryIdTwo);
-    	emailHistoryTwo.setUserId(userTwo);
+    	//emailHistoryTwo.setUserId(userTwo);
     	emailHistoryTwo.setTicketNumber(userTicketTwo);
     	emailHistoryTwo.setEmailSent(_emailSentTwo);
     	emailHistoryTwo.setFromEmail(_fromEmailTwo);
@@ -169,7 +169,7 @@ public class EmailHistoryDAOTest extends BaseDAOTests {
     	userThree.setUserId(_userIdThree);
     	//----------------------------------------------------------------------------------------------------
     	emailHistoryThree.setEmailHistoryId(_emailHistoryIdThree);
-    	emailHistoryThree.setUserId(userThree);
+    	//emailHistoryThree.setUserId(userThree);
     	emailHistoryThree.setTicketNumber(userTicketThree);
     	emailHistoryThree.setEmailSent(_emailSentThree);
     	emailHistoryThree.setFromEmail(_fromEmailThree);

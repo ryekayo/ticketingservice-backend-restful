@@ -46,7 +46,7 @@ public class UserRolesDAOTest extends BaseDAOTests {
     	//----------------------------------------------------------------------------------------------
     	userRolesEntityOne.setId(_idOne);
     	userRolesEntityOne.setRoleId(roleEntityOne);
-    	userRolesEntityOne.setUserId(userEntityOne);
+    	//userRolesEntityOne.setUserId(userEntityOne);
     	role.add(userRolesEntityOne);
     	//-----------------------------------------------------------------------------------------------
     	logger.debug("createUserRolesEntityTwo : STARTING");
@@ -61,7 +61,7 @@ public class UserRolesDAOTest extends BaseDAOTests {
     	//-----------------------------------------------------------------------------------------------
     	userRolesEntityTwo.setId(_idTwo);
     	userRolesEntityTwo.setRoleId(roleEntityTwo);
-    	userRolesEntityTwo.setUserId(userEntityTwo);
+    	//userRolesEntityTwo.setUserId(userEntityTwo);
     	role.add(userRolesEntityTwo);
     	//-----------------------------------------------------------------------------------------------
     	logger.debug("createUserRoleEntityThree : STARTING");
@@ -76,7 +76,7 @@ public class UserRolesDAOTest extends BaseDAOTests {
     	//------------------------------------------------------------------------------------------------
     	userRolesEntityThree.setId(_idThree);
     	userRolesEntityThree.setRoleId(roleEntityThree);
-    	userRolesEntityThree.setUserId(userEntityThree);
+    	//userRolesEntityThree.setUserId(userEntityThree);
     	role.add(userRolesEntityThree);
     	//-------------------------------------------------------------------------------------------------
     	logger.debug("createUserRoleEntity : FINISHED");
@@ -98,7 +98,7 @@ public class UserRolesDAOTest extends BaseDAOTests {
     	System.out.println("testSaveUserRoleEntityOne : STARTING");
     	userRolesOne.setId(_idOne);
     	userRolesOne.setRoleId(roleEntityOne);
-    	userRolesOne.setUserId(userEntityOne);
+    	//userRolesOne.setUserId(userEntityOne);
     	userRolesOne = userRolesDAO.saveUserRolesEntity(userRolesOne);
     	System.out.println("userRolesOne: " + userRolesOne.toString());
     	//--------------------------------------------------------------------------------------------------
@@ -114,7 +114,7 @@ public class UserRolesDAOTest extends BaseDAOTests {
     	//----------------------------------------------------------------------------------------------------
     	userRolesTwo.setId(_idTwo);
     	userRolesTwo.setRoleId(roleEntityTwo);
-    	userRolesTwo.setUserId(userEntityTwo);
+    	//userRolesTwo.setUserId(userEntityTwo);
     	userRolesTwo = userRolesDAO.saveUserRolesEntity(userRolesTwo);
     	System.out.println("userRolesTwo: " + userRolesTwo.toString());
     	//----------------------------------------------------------------------------------------------------
@@ -130,7 +130,7 @@ public class UserRolesDAOTest extends BaseDAOTests {
     	//-----------------------------------------------------------------------------------------------------
     	userRolesThree.setId(_idThree);
     	userRolesThree.setRoleId(roleEntityThree);
-    	userRolesThree.setUserId(userEntityThree);
+    	//userRolesThree.setUserId(userEntityThree);
     	userRolesThree = userRolesDAO.saveUserRolesEntity(userRolesThree);
     	System.out.println("userRolesThree: " + userRolesThree.toString());
     	//-----------------------------------------------------------------------------------------------------
