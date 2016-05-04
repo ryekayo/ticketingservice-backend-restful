@@ -168,7 +168,7 @@ public class CaseDescriptionDAOTest extends BaseDAOTests {
     	String _lastModBy = "RKAHIL";
     	ticketOne.setTicketId(_ticketId);
     	//------------------------------------------------------------------------------------------------------------------
-    	//caseDescription.setId(_id);
+    	caseDescription.setId(_id);
     	caseDescription.setTicketId(ticketOne);
     	caseDescription.setDescription(_caseDesc);
     	caseDescription.setOpenedBy(_openedBy);
@@ -255,7 +255,7 @@ public class CaseDescriptionDAOTest extends BaseDAOTests {
     	String lastModifiedBy = "RKAHIL";
     	userTicket.setTicketId(_ticketId);
     	//--------------------------------------------------------------------------------------------------------
-    	//description.setId(_id);
+    	description.setId(_id);
     	description.setTicketId(userTicket);
     	description.setDescription(caseDescription);
     	description.setOpenedBy(openedBy);
@@ -278,7 +278,7 @@ public class CaseDescriptionDAOTest extends BaseDAOTests {
     	String _lastModByTwo = "RKAHIL";
     	userTicketEntity.setTicketId(_ticketIdTwo);
     	//--------------------------------------------------------------------------------------------------------------
-    	//caseDescriptionEntity.setId(_idTwo);
+    	caseDescriptionEntity.setId(_idTwo);
     	caseDescriptionEntity.setTicketId(userTicketEntity);
     	caseDescriptionEntity.setDescription(_caseDescTwo);
     	caseDescriptionEntity.setLastModified(new Date());
@@ -305,7 +305,7 @@ public class CaseDescriptionDAOTest extends BaseDAOTests {
     	String _lastModByThree = "THOLMES";
     	//------------------------------------------------------------------------------------------------------------
     	caseDescriptionEntity.setTicketId(userTicketEntity);
-    	//caseDescriptionEntity.setId(_idThree);
+    	caseDescriptionEntity.setId(_idThree);
     	caseDescriptionEntity.setDescription(_caseDescThree);
     	caseDescriptionEntity.setLastModified(new Date());
     	caseDescriptionEntity.setOpenedBy(_openedByThree);
