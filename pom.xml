@@ -13,7 +13,9 @@
   	<modules>
 		<module>ticketingsystem-backend-entity</module>
 		<module>ticketingsystem-backend-dao</module>
-	</modules>
+		<module>ticketingsystem-service</module>
+		<module>ticketingsystem-backend-service</module>
+  	</modules>
 
 	<build>
 
