@@ -16,11 +16,13 @@ public class UserRolesImplTest extends BaseServiceImplTests {
 	@Autowired
 	private UserRolesService service;
 	
+	@Override
 	@org.junit.Before
 	public void setUp() throws Exception {
 		System.out.println("setUp: service: " + service);
 	}
 
+	@Override
 	@org.junit.After
 	public void tearDown() {
 		service = null;

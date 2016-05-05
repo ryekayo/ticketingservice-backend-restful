@@ -6,7 +6,7 @@ import com.ticketingsystem.entity.UserEntity;
 
 public interface UserService {
 
-    public List<UserEntity> getAllUsers();
+    List<UserEntity> getAllUsers();
 
     UserEntity getUserByUserId(long userId);
 

@@ -18,11 +18,13 @@ public class UserTicketImplTest extends BaseServiceImplTests {
 	@Autowired
 	private UserTicketService service;
 
+	@Override
 	@org.junit.Before
 	public void setUp() throws Exception {
 		System.out.println("setUp: service: " + service);
 	}
 
+	@Override
 	@org.junit.After
 	public void tearDown() {
 		service = null;
