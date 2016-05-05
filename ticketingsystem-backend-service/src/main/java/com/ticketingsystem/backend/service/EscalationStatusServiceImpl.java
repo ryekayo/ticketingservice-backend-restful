@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ticketingsystem.dao.EscalationStatusDAO;
 import com.ticketingsystem.entity.EscalationStatusEntity;
-import com.ticketingsystem.entity.UserTicketEntity;
 
 @Transactional
 @Service("escalationStatusService")

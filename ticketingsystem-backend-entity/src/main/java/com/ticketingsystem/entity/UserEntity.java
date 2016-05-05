@@ -21,7 +21,10 @@ public class UserEntity implements Serializable
 
     @Column(name = "username")
     private String userName;
-
+    
+    @Column(name = "password")
+    private String password;
+    
     @Column(name = "name")
     private String name;
 
@@ -58,12 +61,18 @@ public class UserEntity implements Serializable
     {
         return name;
     }
-
     public void setName(String name)
     {
         this.name = name;
     }
-
+    public String getPassword()
+    {
+    	return password;
+    }
+    public void setPassword(String password)
+    {
+    	this.password = password;
+    }
     public String getEmailAddress()
     {
         return emailAddress;
@@ -102,6 +111,7 @@ public class UserEntity implements Serializable
         result = prime * result + ((emailAddress == null) ? 0 : emailAddress.hashCode());
         result = prime * result + (int) (userId ^ (userId >>> 32));
         result = prime * result + ((name == null) ? 0 : name.hashCode());
+        result = prime * result + ((password == null) ? 0 : password.hashCode());
         result = prime * result + ((phoneNumber == null) ? 0 : phoneNumber.hashCode());
         result = prime * result + ((title == null) ? 0 : title.hashCode());
         result = prime * result + ((userName == null) ? 0 : userName.hashCode());
@@ -155,13 +165,20 @@ public class UserEntity implements Serializable
         }
         else if (!userName.equals(other.userName))
             return false;
+        if (password == null)
+        {
+            if (other.password != null)
+                return false;
+        }
+        else if (!password.equals(other.password))
+            return false;
         return true;
     }
 
     @Override
     public String toString()
     {
-        return "UserEntity [userId=" + userId + ", userName=" + userName + ", name=" + name + ", emailAddress=" + emailAddress + ", title=" + title + ", phoneNumber=" + phoneNumber + "]";
+        return "UserEntity [userId=" + userId + ", userName=" + userName + " password=" + password + ", name=" + name + ", emailAddress=" + emailAddress + ", title=" + title + ", phoneNumber=" + phoneNumber + "]";
     }
 
 }

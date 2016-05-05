@@ -37,6 +37,7 @@ public class UserDAOTest extends BaseDAOTests {
     	UserEntity userEntityOne = null;
     	long _userId = 1;
     	String _userName = "rkahil";
+    	String _password = "TEST";
     	String _name = "RYAN KAHIL";
     	String _userEmail = "rkahil@test.com";
     	String _title = "VP";
@@ -44,6 +45,7 @@ public class UserDAOTest extends BaseDAOTests {
     	userEntityOne.setUserId(_userId);
     	userEntityOne.setUserName(_userName);
     	userEntityOne.setName(_name);
+    	userEntityOne.setPassword(_password);
     	userEntityOne.setEmailAddress(_userEmail);
     	userEntityOne.setTitle(_title);
     	userEntityOne.setPhoneNumber(_phoneNumber);
@@ -53,12 +55,14 @@ public class UserDAOTest extends BaseDAOTests {
     	UserEntity userEntityTwo = null;
     	long _userIdTwo = 2;
     	String _userNameTwo = "tholmes";
+    	String _passwordTwo = "TEST1";
     	String _nameTwo = "TOM HOLMES";
     	String _emailTwo = "tholmes@test.com";
     	String _titleTwo = "VP";
     	String _phoneNumberTwo = "666-666-6666";
     	userEntityTwo.setUserId(_userIdTwo);
     	userEntityTwo.setUserName(_userNameTwo);
+    	userEntityTwo.setPassword(_passwordTwo);
     	userEntityTwo.setName(_nameTwo);
     	userEntityTwo.setEmailAddress(_emailTwo);
     	userEntityTwo.setTitle(_titleTwo);
@@ -69,12 +73,14 @@ public class UserDAOTest extends BaseDAOTests {
     	UserEntity userEntityThree = null;
     	long _userIdThree = 3;
     	String _userNameThree = "drivers";
+    	String _passwordThree = "TEST2";
     	String _nameThree = "DOC RIVERS";
     	String _emailThree = "drivers@test.com";
     	String _titleThree = "TEST";
     	String _phoneNumberThree = "777-777-7777";
     	userEntityThree.setUserId(_userIdThree);
     	userEntityThree.setUserName(_userNameThree);
+    	userEntityThree.setPassword(_passwordThree);
     	userEntityThree.setName(_nameThree);
     	userEntityThree.setEmailAddress(_emailThree);
     	userEntityThree.setTitle(_titleThree);
@@ -92,6 +98,7 @@ public class UserDAOTest extends BaseDAOTests {
     	UserEntity userEntityOne = new UserEntity();
     	long _userIdOne = 5;
     	String _userNameOne = "testOne";
+    	String _passwordOne = "test";
     	String _nameOne = "TEST ONE";
     	String _userEmailOne = "testOne@test.com";
     	String _titleOne = "VP";
@@ -99,6 +106,7 @@ public class UserDAOTest extends BaseDAOTests {
     	//----------------------------------------------------------------------------------------------
     	userEntityOne.setUserId(_userIdOne);
     	userEntityOne.setUserName(_userNameOne);
+    	userEntityOne.setPassword(_passwordOne);
     	userEntityOne.setName(_nameOne);
     	userEntityOne.setEmailAddress(_userEmailOne);
     	userEntityOne.setTitle(_titleOne);
@@ -110,12 +118,14 @@ public class UserDAOTest extends BaseDAOTests {
     	long _userIdTwo = 6;
     	String _userNameTwo = "testTwo";
     	String _nameTwo = "TEST TWO";
+    	String _passwordTwo = "testtwo";
     	String _userEmailTwo = "testTwo@test.com";
     	String _titleTwo = "TEST";
     	String _phoneNumberTwo = "19197238823";
     	//------------------------------------------------------------------------------------------------
     	userEntityTwo.setUserId(_userIdTwo);
     	userEntityTwo.setUserName(_userNameTwo);
+    	userEntityTwo.setPassword(_passwordTwo);
     	userEntityTwo.setName(_nameTwo);
     	userEntityTwo.setEmailAddress(_userEmailTwo);
     	userEntityTwo.setTitle(_titleTwo);
@@ -126,6 +136,7 @@ public class UserDAOTest extends BaseDAOTests {
     	UserEntity userEntityThree = new UserEntity();
     	long _userIdThree = 7;
     	String _userNameThree = "testThree";
+    	String _passwordThree = "testing";
     	String _nameThree = "TEST THREE";
     	String _userEmailThree = "testThree@test.com";
     	String _titleThree = "TEST";
@@ -133,6 +144,7 @@ public class UserDAOTest extends BaseDAOTests {
     	//--------------------------------------------------------------------------------------------------
     	userEntityThree.setUserId(_userIdThree);
     	userEntityThree.setUserName(_userNameThree);
+    	userEntityThree.setPassword(_passwordThree);
     	userEntityThree.setName(_nameThree);
     	userEntityThree.setEmailAddress(_userEmailThree);
     	userEntityThree.setTitle(_titleThree);
@@ -149,6 +161,7 @@ public class UserDAOTest extends BaseDAOTests {
     	UserEntity userEntity = new UserEntity();
     	long _userId = 10;
     	String _userName = "TESTING";
+    	String _password = "test";
     	String _name = "TEST TEST";
     	String _email = "testingtest@test.com";
     	String _title = "tESt";
@@ -156,6 +169,7 @@ public class UserDAOTest extends BaseDAOTests {
     	//--------------------------------------------------------------------------------------------------
     	userEntity.setUserId(_userId);
     	userEntity.setUserName(_userName);
+    	userEntity.setPassword(_password);
     	userEntity.setName(_name);
     	userEntity.setEmailAddress(_email);
     	userEntity.setTitle(_title);
@@ -172,6 +186,7 @@ public class UserDAOTest extends BaseDAOTests {
     	UserEntity userEntity = new UserEntity();
     	long _userId = 1;
     	String _userName = "thisisatest";
+    	String _password = "test";
     	String _name = "ThisIsATest";
     	String _email = "testingupdate@test.com";
     	String _title = "test";
@@ -179,6 +194,7 @@ public class UserDAOTest extends BaseDAOTests {
     	//---------------------------------------------------------------------------------------------------
     	userEntity.setUserId(_userId);
     	userEntity.setUserName(_userName);
+    	userEntity.setPassword(_password);
     	userEntity.setName(_name);
     	userEntity.setEmailAddress(_email);
     	userEntity.setTitle(_title);
