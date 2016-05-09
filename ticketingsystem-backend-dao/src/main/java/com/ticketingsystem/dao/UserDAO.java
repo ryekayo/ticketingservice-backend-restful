@@ -20,6 +20,8 @@ public interface UserDAO {
 	
 	public UserEntity getUserEntity(long userId);
 	
+	public List<UserEntity> getUserEntitiesByLogin(String userName, String password);
+	
 	public List<UserEntity> getAllUserEntitiesByUserName(String userName);
 	
 	public List<UserEntity> getAllUserEntitiesByEmail(String emailAddress);

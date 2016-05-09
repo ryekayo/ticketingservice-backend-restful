@@ -140,5 +140,4 @@ public class UserImplTest extends BaseServiceImplTests {
 		System.out.println("testUserEntityRemoveTwo : FINISHED");
 		
 	}
-	
 }

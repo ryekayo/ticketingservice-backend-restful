@@ -281,4 +281,19 @@ public class UserDAOTest extends BaseDAOTests {
     	userDao.getAllUserEntitiesById(_userId);
     	System.out.println("testFetchUserListEntitiesByUserId : FINISHED");
     }
+    @Test
+    public void testFetchGetUserEntitiesByLogin()
+    {
+    	System.out.println("testFetchGetUserEntitiesByLogin : STARTING");
+    	String _userName = "RKAHIL";
+    	String _password = "TEST";
+    	List<UserEntity> user = userDao.getUserEntitiesByLogin(_userName, _password);
+    	if(user != null)
+    	{
+    		System.out.println("testFetchGetUserEntitiesByLogin: " + user.toString());	
+    	}
+    	assertNotNull(user);
+    	userDao.getUserEntitiesByLogin(_userName, _password);
+    	System.out.println("testFetchGetUserEntitiesByLogin : FINISHED");
+    }
 }

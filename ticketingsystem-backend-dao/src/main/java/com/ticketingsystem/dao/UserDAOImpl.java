@@ -89,4 +89,11 @@ public class UserDAOImpl implements UserDAO {
 				this.sessionFactory.getCurrentSession().createQuery("from UserEntity where userId =?").setParameter(0, userId).list();
 		return id;
 	}
+
+	@Override
+	public List<UserEntity> getUserEntitiesByLogin(String userName, String password) {
+		List<UserEntity> user = 
+				this.sessionFactory.getCurrentSession().createQuery("from UserEntity where userName =? and password =?").setParameter(0, userName).setParameter(1, password).list();
+		return user;
+	}
 }

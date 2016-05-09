@@ -1,31 +1,32 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>ticketingservice-backend-restful</groupId>
-    <artifactId>ticketingservice-backend-restful</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>ticketingservice-backend-restful</groupId>
+		<artifactId>ticketingservice-backend-restful</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
 
-  <artifactId>ticketingsystem-backend-service</artifactId>
-  <name>ticketingsystem-backend-service</name>
-  <description>TicketingSystem Backend Service</description>
+	<artifactId>ticketingsystem-backend-service</artifactId>
+	<name>ticketingsystem-backend-service</name>
+	<description>TicketingSystem Backend Service</description>
 
-  
-  <properties>
-  		<!-- Logging -->
+
+	<properties>
+		<!-- Logging -->
 		<logback.version>1.0.13</logback.version>
 		<slf4j.version>1.7.12</slf4j.version>
 
 		<!-- Test -->
 		<junit.version>4.12</junit.version>
-		
+
 		<!-- Spring -->
 		<spring.version>4.2.5.RELEASE</spring.version>
-  </properties>
-  
-  <dependencies>
+	</properties>
+
+	<dependencies>
 		<!-- TicketingSystem Backend Dependencies -->
 		<dependency>
 			<groupId>org.springframework.samples</groupId>
@@ -52,5 +53,5 @@
 			<version>${spring.version}</version>
 			<scope>test</scope>
 		</dependency>
-  </dependencies>
+	</dependencies>
 </project>
