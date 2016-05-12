@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.ticketingsystem.entity.UserEntity;
+import com.ticketingsystem.backend.service.LoginService;
 
 public class LoginServiceImplTest extends BaseServiceImplTests {
 	
@@ -46,8 +47,7 @@ public class LoginServiceImplTest extends BaseServiceImplTests {
 		userEntity.setTitle(_title);
 		userEntity.setPhoneNumber(_phoneNumber);
 		return userEntity;
-	}
-	
+	}	
 	@Test
 	public void testLogin()
 	{

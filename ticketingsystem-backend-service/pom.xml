@@ -9,11 +9,10 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
+	<groupId>com.ticketingsystem</groupId>
 	<artifactId>ticketingsystem-backend-service</artifactId>
 	<name>ticketingsystem-backend-service</name>
 	<description>TicketingSystem Backend Service</description>
-
-
 	<properties>
 		<!-- Logging -->
 		<logback.version>1.0.13</logback.version>
