@@ -16,9 +16,15 @@ public class LoginControllerTest extends BaseControllerTests {
 	@Test
 	public void testMockGetUserByUserNameAndPassword()
 	{
-		MockHttpServletRequestBuilder requestBuilder = new MockMvcRequestBuilders.get("/login/user/{username}/pwd/{password}");
+		MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/login/user/{username}/pwd/{password}");
 		requestBuilder.param("username", "RKAHIL");
 		requestBuilder.param("password", "TEST1");
+	}
+	@Test
+	public void testMockGetUserByUserNameAndPasswordTwo() throws Exception
+	{
+        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/login/user/RKAHIL/pwd/TEST1");
+        this.mockMvc.perform(requestBuilder).andDo(print()).andExpect(status().isOk());
 	}
 }
 
