@@ -19,7 +19,7 @@ import org.springframework.web.context.WebApplicationContext;
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration(locations =
-{ "classpath:/spring/phonebook-ws-context.xml", "file:src/main/webapp/WEB-INF/springmvc-servlet.xml" })
+{ "classpath:/spring/ticketingsystem-service-context.xml", "file:src/main/webapp/WEB-INF/springmvc-servlet.xml" })
 @Transactional
 public class BaseControllerTests extends TestCase {
 
