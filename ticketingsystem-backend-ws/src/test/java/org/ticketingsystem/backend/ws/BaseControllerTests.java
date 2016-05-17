@@ -15,8 +15,10 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @RunWith(SpringJUnit4ClassRunner.class)
+@EnableWebMvc
 @WebAppConfiguration
 @ContextConfiguration(locations =
 { "classpath:/spring/ticketingsystem-service-context.xml", "file:src/main/webapp/WEB-INF/springmvc-servlet.xml" })

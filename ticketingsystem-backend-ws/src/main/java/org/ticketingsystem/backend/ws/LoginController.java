@@ -25,7 +25,7 @@ public class LoginController {
 	@Autowired
 	private SendMailService sendMailService;
 	
-	@RequestMapping(value = "/user/{username}/pwd/{password}", method = RequestMethod.GET, headers = "Accept=application/json")
+	@RequestMapping(value = "/user/{username}/password/{password}", method = RequestMethod.GET, headers = "Accept=application/json")
 	public @ResponseBody UserEntity login(@PathVariable("username") String userName, @PathVariable("password") String password)
 	{
 		System.out.println("LoginController: login: START: username= " + userName + "password= " + password);
