@@ -10,6 +10,6 @@
 
 	<!-- ========================= RESOURCE DEFINITIONS ========================= -->
 
-<import resource="classpath:/spring/ticketingsystem-dao-context.xml" />
+<import resource="classpath:/spring/ticketingsystem-service-context.xml" />
 	
 </beans>
