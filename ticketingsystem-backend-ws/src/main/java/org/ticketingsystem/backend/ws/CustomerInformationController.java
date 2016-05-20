@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -47,4 +48,23 @@ public class CustomerInformationController
         System.out.println("CustomerInformationController : getCustomerByCustomerId : CustomerInformationEntity = " + customer);
         return customer;
     }
+	@RequestMapping(value="/create", method = RequestMethod.GET, headers="Accept=application/json")
+	public @ResponseBody CustomerInformationEntity createCustomer(@RequestBody CustomerInformationEntity customer)
+	{
+		System.out.println("CustomerInformationController : createCustomer: START");
+		CustomerInformationEntity customerInfo = service.add(customer);
+		return customerInfo;
+	}
+	@RequestMapping(value="/update", method = RequestMethod.GET, headers="Accept=application/json")
+	public @ResponseBody CustomerInformationEntity updateCustomer(@RequestBody CustomerInformationEntity customer)
+	{
+		System.out.println("CustomerInformationController: updateCustomer : START");
+		CustomerInformationEntity customerInfo = service.update(customer);
+		return customerInfo;
+	}
+	@RequestMapping(value="/delete/{customerId}", method = RequestMethod.GET, headers="Accept=application/json")
+	public @ResponseBody void deleteCustomer(@PathVariable("customerId") long customerId)
+	{
+		service.remove(customerId);
+	}
 }

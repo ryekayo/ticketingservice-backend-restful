@@ -6,7 +6,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
@@ -54,6 +53,12 @@ public class CustomerInformationControllerTest extends BaseControllerTests {
 	public void testMockGetCustomerById() throws Exception
 	{
 		MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/customer/customerId/1");
+		this.mockMvc.perform(requestBuilder).andDo(print()).andExpect(status().isOk());
+	}
+	@Test
+	public void testMockDeleteCustomerById() throws Exception
+	{
+		MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/customer/delete/1");
 		this.mockMvc.perform(requestBuilder).andDo(print()).andExpect(status().isOk());
 	}
 }
