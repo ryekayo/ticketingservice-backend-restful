@@ -18,10 +18,10 @@ import com.ticketingsystem.entity.CaseDescriptionEntity;
 @RequestMapping("/casedescription")
 public class CaseDescriptionController {
 	
-	private final static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    private final static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	
-	@Autowired
-	private CaseDescriptionService service;
+    @Autowired
+    private CaseDescriptionService service;
 	
     @RequestMapping(value = "", method = RequestMethod.GET, headers = "Accept=application/json")
     public @ResponseBody ArrayList<CaseDescriptionEntity> getCaseDescriptionList()
