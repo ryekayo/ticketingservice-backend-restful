@@ -42,19 +42,19 @@ public class CaseDescriptionControllerTest extends BaseControllerTests {
 	@Test
 	public void testMockGetCaseDescriptionList() throws Exception
 	{
-		MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/casedescription");
-        this.mockMvc.perform(requestBuilder).andDo(print()).andExpect(status().isOk());
+	    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/casedescription");
+            this.mockMvc.perform(requestBuilder).andDo(print()).andExpect(status().isOk());
 	}
 	@Test
 	public void testMockGetCaseDescriptionListTwo() throws Exception
 	{
-		MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/casedescription/");
-        this.mockMvc.perform(requestBuilder).andDo(print()).andExpect(status().isOk());
+	    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/casedescription/");
+            this.mockMvc.perform(requestBuilder).andDo(print()).andExpect(status().isOk());
 	}
 	@Test
 	public void testMockDeleteCaseDecription() throws Exception
 	{
-		MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/casedescription/delete/1");
-		this.mockMvc.perform(requestBuilder).andDo(print()).andExpect(status().isOk());
+	    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/casedescription/delete/1");
+	    this.mockMvc.perform(requestBuilder).andDo(print()).andExpect(status().isOk());
 	}
 }
